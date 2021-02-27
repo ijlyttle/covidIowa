@@ -1,6 +1,6 @@
 Import data
 ================
-Compiled at 2021-02-27 17:49:30 UTC
+Compiled at 2021-02-27 18:46:30 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "0deed706-3efe-402b-b827-b58e9bb3e976")
@@ -35,10 +35,13 @@ path_source <- projthis::proj_path_source(params$name)
 
 ## Tasks
 
-The first task is to set up some decide on “today’s” file-name:
+### HTML files
+
+These are daily snapshots from the Iowa Department of Public Health.
 
 ``` r
-html_file <- path_target(glue("access-{today(tz = 'America/Chicago')}.html"))
+html_file <- 
+  path_target("idph-html", glue("access-{today(tz = 'America/Chicago')}.html"))
 ```
 
 We are going to use [rvest](https://rvest.tidyverse.org/) to page, but
@@ -71,7 +74,7 @@ chrome <- Chrome$new(bin = pagedown::find_chrome())
 
     ## Running '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' \
     ##   --no-first-run --headless \
-    ##   '--user-data-dir=/Users/sesa19001/Library/Application Support/r-crrri/chrome-data-dir-jpgriksf' \
+    ##   '--user-data-dir=/Users/sesa19001/Library/Application Support/r-crrri/chrome-data-dir-wydnvxqt' \
     ##   '--remote-debugging-port=9222' \
     ##   '--proxy-server=http://force-proxy-eur.pac.schneider-electric.com:80' \
     ##   '--proxy-bypass-list=localhost;127.0.0.1;github.schneider-electric.com;repo.continuum.io;github-development.schneider-electric.com'
@@ -118,19 +121,51 @@ hold(
 chrome$close()
 ```
 
+### County population
+
+This is an excel sheet offered by Iowa State University:
+
+``` r
+file_population <- 
+  path_target("county-population", "iowa-county-population.xls")
+
+if (!file_exists(file_population)) {
+  download.file(params$url_population, destfile = file_population)
+}
+```
+
 ## Files written
 
 These files have been written to the target directory, `data/00-import`:
 
 ``` r
-projthis::proj_dir_info(path_target()) %>% 
-  arrange(desc(modification_time)) # show most-recent first
+projthis::proj_dir_info(path_target()) 
+```
+
+    ## # A tibble: 2 x 4
+    ##   path              type             size modification_time  
+    ##   <fs::path>        <fct>     <fs::bytes> <dttm>             
+    ## 1 county-population directory          96 2021-02-27 18:41:46
+    ## 2 idph-html         directory       8.75K 2021-02-27 18:46:10
+
+``` r
+projthis::proj_dir_info(path_target("county-population")) 
+```
+
+    ## # A tibble: 1 x 4
+    ##   path                       type         size modification_time  
+    ##   <fs::path>                 <fct> <fs::bytes> <dttm>             
+    ## 1 iowa-county-population.xls file         230K 2021-02-27 18:29:28
+
+``` r
+projthis::proj_dir_info(path_target("idph-html")) %>% 
+  arrange(desc(path)) # show most-recent first
 ```
 
     ## # A tibble: 278 x 4
     ##    path                   type         size modification_time  
     ##    <fs::path>             <fct> <fs::bytes> <dttm>             
-    ##  1 access-2021-02-27.html file        5.39K 2021-02-27 17:49:47
+    ##  1 access-2021-02-27.html file        5.39K 2021-02-27 18:46:47
     ##  2 access-2021-02-26.html file      489.68K 2021-02-27 16:23:59
     ##  3 access-2021-02-25.html file      489.68K 2021-02-27 16:23:59
     ##  4 access-2021-02-24.html file      489.68K 2021-02-27 16:23:59

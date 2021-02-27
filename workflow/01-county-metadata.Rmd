@@ -1,0 +1,116 @@
+---
+title: "County metadata"
+date: "Compiled at `r format(Sys.time(), '%Y-%m-%d %H:%M:%S', tz = 'UTC')` UTC"
+output: github_document
+params:
+  name: "01-county-metadata" # change if you rename file
+---
+
+```{r here, message=FALSE}
+here::i_am(paste0(params$name, ".Rmd"), uuid = "cee9aa30-7c5a-42d3-80bc-621c4467656f")
+```
+
+The purpose of this document is to write out a CSV file that contains county population.
+
+```{r packages}
+library("conflicted")
+library("readxl")
+library("dplyr")
+library("stringr")
+library("forcats")
+library("readr")
+library("ggplot2")
+
+conflict_prefer("filter", "dplyr")
+```
+
+```{r directories}
+# create or *empty* the target directory, used to write this file's data: 
+projthis::proj_create_dir_target(params$name, clean = TRUE)
+
+# function to get path to target directory: path_target("sample.csv")
+path_target <- projthis::proj_path_target(params$name)
+
+# function to get path to previous data: path_source("00-import", "sample.csv")
+path_source <- projthis::proj_path_source(params$name)
+```
+
+## Tasks
+
+Let's do this using a pipe:
+
+```{r read-transform}
+iowa_county_population <-
+  read_xls(
+    path = path_source("00-import", "county-population", "iowa-county-population.xls"), 
+    sheet = "Counties", 
+    range = "A7:M107"
+  ) %>%
+  transmute(
+    fips = Fips,
+    county = str_replace(Area, " County, Iowa", ""),
+    population = `2019`
+  ) %>%
+  filter(fips > 19) %>%
+  arrange(population) %>%
+  mutate(
+    cumulative_population = cumsum(population),
+    quantile_population = cumulative_population/max(cumulative_population),
+    population_group = cut(
+      quantile_population, 
+      breaks = c(0, 0.25, 0.50, 0.78, 1),
+      labels = c("small", "mid-small", "mid-large", "large")
+    ),
+    population_group = fct_rev(population_group)
+  ) %>%
+  arrange(desc(cumulative_population)) %>%
+  print()
+```
+
+We also want to compute the approximate centers of the counties (trick I picked up from Heike Hofmann).
+
+```{r}
+map_iowa_county <-
+  map_data("county") %>%
+  filter(region == "iowa") %>%
+  group_by(county = subregion) %>%
+  summarise(
+    lat = (max(lat) + min(lat)) / 2,
+    lon =  (max(long) + min(long)) / 2
+  ) %>%
+  mutate(
+    abbreviation = str_to_upper(county) %>% str_sub(1, 3),
+    county = str_to_title(county),
+    county = ifelse(county == "Obrien", "O'Brien", county)
+  ) %>%
+  glimpse()
+```
+
+```{r}
+iowa_county_meta <-
+  iowa_county_population %>%
+  select(fips, county, population, population_group) %>%
+  left_join(
+    map_iowa_county, 
+    by = "county"
+  ) %>%
+  select(fips, county, abbreviation, lon, lat, everything()) %>%
+  glimpse()
+```
+
+Let's write this out:
+
+```{r}
+write_csv(
+  iowa_county_meta,
+  path_target("iowa_county_meta.csv")
+)
+```
+
+## Files written
+
+These files have been written to the target directory, ```r paste0("data/", params$name)```:
+
+```{r list-files-target}
+projthis::proj_dir_info(path_target())
+```

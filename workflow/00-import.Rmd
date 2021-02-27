@@ -5,6 +5,7 @@ output: github_document
 params:
   name: "00-import" # change if you rename file
   url_access: "https://coronavirus.iowa.gov/pages/access"
+  url_population: "https://www.icip.iastate.edu/sites/default/files/uploads/tables/population/popest-annual.xls"
 ---
 
 ```{r here, message=FALSE}
@@ -37,10 +38,13 @@ path_source <- projthis::proj_path_source(params$name)
 
 ## Tasks
 
-The first task is to set up some decide on "today's" file-name:
+### HTML files
+
+These are daily snapshots from the Iowa Department of Public Health.
 
 ```{r}
-html_file <- path_target(glue("access-{today(tz = 'America/Chicago')}.html"))
+html_file <- 
+  path_target("idph-html", glue("access-{today(tz = 'America/Chicago')}.html"))
 ```
 
 We are going to use [rvest](https://rvest.tidyverse.org/) to page, but there's a problem. The page is not a static HTML site; the data we want is injected into the site using JavaScript. This means that **rvest** would be looking for the css tags in a document that does not have the data table.
@@ -89,11 +93,32 @@ hold(
 chrome$close()
 ```
 
+### County population
+
+This is an excel sheet offered by Iowa State University:
+
+```{r}
+file_population <- 
+  path_target("county-population", "iowa-county-population.xls")
+
+if (!file_exists(file_population)) {
+  download.file(params$url_population, destfile = file_population)
+}
+```
+
 ## Files written
 
 These files have been written to the target directory, ```r paste0("data/", params$name)```:
 
 ```{r list-files-target}
-projthis::proj_dir_info(path_target()) %>% 
-  arrange(desc(modification_time)) # show most-recent first
+projthis::proj_dir_info(path_target()) 
+```
+
+```{r list-files-target-html}
+projthis::proj_dir_info(path_target("county-population")) 
+```
+
+```{r list-files-target-xls}
+projthis::proj_dir_info(path_target("idph-html")) %>% 
+  arrange(desc(path)) # show most-recent first
 ```

@@ -13,10 +13,11 @@ path_source <- projthis::proj_path_source("README")
 
 In this workflow, we will:
 
-- download:
-   - a copy of the [IDPH accessibility page](https://coronavirus.iowa.gov/pages/access)
+- [import](00-import.md):
+   - daily snapshots of the [IDPH accessibility page](https://coronavirus.iowa.gov/pages/access)
    - county metadata
-- scrape the data from the pages
+- scrape the data from the shapshots
+- extract the county metadata
 - merge the data into various forms
 - plot the data
 - publish the data and the plots

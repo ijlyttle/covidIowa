@@ -24,7 +24,16 @@ Imports:
     glue,
     lubridate,
     projthis,
-    pagedown
+    pagedown,
+    forcats,
+    ggplot2,
+    readr,
+    readxl,
+    stringr,
+    purrr,
+    rvest,
+    tibble,
+    xml2
 Remotes:
   ijlyttle/projthis,
   rlesur/crrri
