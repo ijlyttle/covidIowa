@@ -16,7 +16,7 @@ In this workflow, we will:
 - [import](00-import.md):
    - daily snapshots of the [IDPH accessibility page](https://coronavirus.iowa.gov/pages/access)
    - county metadata
-- scrape the data from the shapshots 
+- scrape the data from the shapshots
 - extract the county metadata
 - merge the data into various forms
 - plot the data
