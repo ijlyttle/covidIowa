@@ -1,0 +1,99 @@
+---
+title: "Import data"
+date: "Compiled at `r format(Sys.time(), '%Y-%m-%d %H:%M:%S', tz = 'UTC')` UTC"
+output: github_document
+params:
+  name: "00-import" # change if you rename file
+  url_access: "https://coronavirus.iowa.gov/pages/access"
+---
+
+```{r here, message=FALSE}
+here::i_am(paste0(params$name, ".Rmd"), uuid = "0deed706-3efe-402b-b827-b58e9bb3e976")
+```
+
+The purpose of this document is to collect all the data we need, in raw form.
+
+```{r packages}
+library("conflicted")
+library("fs")
+library("glue")
+library("crrri")
+library("dplyr")
+library("lubridate")
+```
+
+We are going to seed the dataset using some HTML files I had previously downloaded, so we will not start the target directory in a `clean` state every time we run it.
+
+```{r directories}
+# create or *empty* the target directory, used to write this file's data: 
+projthis::proj_create_dir_target(params$name, clean = FALSE)
+
+# function to get path to target directory: path_target("sample.csv")
+path_target <- projthis::proj_path_target(params$name)
+
+# function to get path to previous data: path_source("00-import", "sample.csv")
+path_source <- projthis::proj_path_source(params$name)
+```
+
+## Tasks
+
+The first task is to set up some decide on "today's" file-name:
+
+```{r}
+html_file <- path_target(glue("access-{today(tz = 'America/Chicago')}.html"))
+```
+
+We are going to use [rvest](https://rvest.tidyverse.org/) to page, but there's a problem. The page is not a static HTML site; the data we want is injected into the site using JavaScript. This means that **rvest** would be looking for the css tags in a document that does not have the data table.
+
+We need another tool for the toolbox: [crrri](https://rlesur.github.io/crrri) - a package written by Romain Lesur and Christophe Dervieux - which will let us build the page locally, using Chrome. Then we will scrape it, using our local copy of the page.
+
+The **crrri** package is not on CRAN, and it requires that you have Chrome installed on your computer, so that it can call it in the background. To run Chrome, the **crrri** package will need to know where to *find* Chrome. You can use `pagedown::find_chrome()` to find the location on your computer (on mine, it is `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"`). The **crrri** package uses the environment variable `HEADLESS_CHROME` to look for a default value.
+
+In the future, it may be interesting for this step (downloading the html file) to be split into its own Action (using JS).
+
+```{r}
+chrome <- Chrome$new(bin = pagedown::find_chrome())
+client <- chrome$connect()
+```
+
+```{r}
+dump_DOM <- function(client, url, html_file) {
+  Network <- client$Network
+  Page <- client$Page
+  Runtime <- client$Runtime
+  Network$enable() %...>%
+  { Page$enable() } %...>%
+  { Network$setCacheDisabled(cacheDisabled = TRUE) } %...>% 
+  { Page$navigate(url = url) } %...>%
+  { Page$loadEventFired() } %...>% {
+    Sys.sleep(10) # hacky - wait for a certain event, instead
+  } %...>% { 
+    Runtime$evaluate(
+      expression = 'document.documentElement.outerHTML'
+    ) 
+  } %...>% {
+    writeLines(c(.$result$value, "\n"), con = html_file) 
+  } %>%
+  finally(
+    ~ client$disconnect()
+  ) %...!% {
+    cat("Error:", .$message, "\n")
+  }
+}
+```
+
+```{r}
+hold(
+  client %...>% dump_DOM(params$url_access, html_file)  
+)
+chrome$close()
+```
+
+## Files written
+
+These files have been written to the target directory, ```r paste0("data/", params$name)```:
+
+```{r list-files-target}
+projthis::proj_dir_info(path_target()) %>% 
+  arrange(desc(modification_time)) # show most-recent first
+```
