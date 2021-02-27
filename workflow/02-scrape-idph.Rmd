@@ -64,7 +64,7 @@ extract_date <- function(html) {
 }
 ```
 
-Next, a function that, given the HTML, returns a data-frame with:
+Next, a function that, given the HTML, returns a data-frame with: 
 
 - `date`
 - `county`
