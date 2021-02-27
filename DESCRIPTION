@@ -27,6 +27,7 @@ Imports:
     pagedown,
     forcats,
     ggplot2,
+    maps,
     readr,
     readxl,
     stringr,
