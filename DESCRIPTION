@@ -25,3 +25,6 @@ Imports:
     lubridate,
     projthis,
     pagedown
+Remotes:
+  ijlyttle/projthis
+  rlesur/crrri
