@@ -1,6 +1,6 @@
 Scrape IDPH data
 ================
-Compiled at 2021-02-27 19:51:58 UTC
+Compiled at 2021-02-27 21:13:44 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "357772d2-af9d-4d6e-868f-3dc08773181c")
@@ -15,6 +15,13 @@ library("rvest")
 
     ## Loading required package: xml2
 
+    ## 
+    ## Attaching package: 'rvest'
+
+    ## The following object is masked from 'package:readr':
+    ## 
+    ##     guess_encoding
+
 ``` r
 library("tibble")
 library("dplyr")
@@ -24,6 +31,13 @@ library("stringr")
 library("readr")
 library("purrr")
 ```
+
+    ## 
+    ## Attaching package: 'purrr'
+
+    ## The following object is masked from 'package:rvest':
+    ## 
+    ##     pluck
 
 ``` r
 # create or *empty* the target directory, used to write this file's data: 
@@ -68,12 +82,12 @@ extract_date <- function(html) {
 
 Next, a function that, given the HTML, returns a data-frame with:
 
--   `date`
--   `county`
--   `tests`
--   `cases`
--   `recovered`
--   `deaths`
+  - `date`
+  - `county`
+  - `tests`
+  - `cases`
+  - `recovered`
+  - `deaths`
 
 All values are cumulative.
 
@@ -166,12 +180,13 @@ files_needed <- files_source[dates_needed]
 files_needed
 ```
 
-    ## /Users/sesa19001/Documents/repos/public/covidIowa/workflow/data/00-import/idph-html/access-2020-11-07.html
-    ## /Users/sesa19001/Documents/repos/public/covidIowa/workflow/data/00-import/idph-html/access-2020-11-12.html
-    ## /Users/sesa19001/Documents/repos/public/covidIowa/workflow/data/00-import/idph-html/access-2021-01-12.html
-    ## /Users/sesa19001/Documents/repos/public/covidIowa/workflow/data/00-import/idph-html/access-2021-01-16.html
-    ## /Users/sesa19001/Documents/repos/public/covidIowa/workflow/data/00-import/idph-html/access-2021-01-18.html
-    ## /Users/sesa19001/Documents/repos/public/covidIowa/workflow/data/00-import/idph-html/access-2021-02-26.html
+    ## /Users/runner/work/covidIowa/covidIowa/workflow/data/00-import/idph-html/access-2020-11-07.html
+    ## /Users/runner/work/covidIowa/covidIowa/workflow/data/00-import/idph-html/access-2020-11-12.html
+    ## /Users/runner/work/covidIowa/covidIowa/workflow/data/00-import/idph-html/access-2021-01-12.html
+    ## /Users/runner/work/covidIowa/covidIowa/workflow/data/00-import/idph-html/access-2021-01-16.html
+    ## /Users/runner/work/covidIowa/covidIowa/workflow/data/00-import/idph-html/access-2021-01-18.html
+    ## /Users/runner/work/covidIowa/covidIowa/workflow/data/00-import/idph-html/access-2021-02-26.html
+    ## /Users/runner/work/covidIowa/covidIowa/workflow/data/00-import/idph-html/access-2021-02-27.html
 
 Finally, we need a function, given a filepath to an html file, and a
 target directory, scrape the html file and write a CSV file in the
@@ -237,17 +252,17 @@ projthis::proj_dir_info(path_target()) %>%
   arrange(desc(path)) # show most-recent first
 ```
 
-    ## # A tibble: 273 x 4
+    ## # A tibble: 274 x 4
     ##    path                  type         size modification_time  
     ##    <fs::path>            <fct> <fs::bytes> <dttm>             
-    ##  1 access-NA.csv         file        3.42K 2021-02-27 19:52:00
-    ##  2 access-2021-02-26.csv file        4.23K 2021-02-27 19:52:00
-    ##  3 access-2021-02-25.csv file        4.23K 2021-02-27 19:50:34
-    ##  4 access-2021-02-24.csv file        4.23K 2021-02-27 19:50:34
-    ##  5 access-2021-02-23.csv file        4.23K 2021-02-27 19:50:33
-    ##  6 access-2021-02-22.csv file        4.23K 2021-02-27 19:50:33
-    ##  7 access-2021-02-21.csv file        4.23K 2021-02-27 19:50:33
-    ##  8 access-2021-02-20.csv file        4.23K 2021-02-27 19:50:33
-    ##  9 access-2021-02-19.csv file        4.23K 2021-02-27 19:50:33
-    ## 10 access-2021-02-18.csv file        4.23K 2021-02-27 19:50:33
-    ## # … with 263 more rows
+    ##  1 access-NA.csv         file        3.42K 2021-02-27 21:13:47
+    ##  2 access-2021-02-27.csv file        4.23K 2021-02-27 21:13:50
+    ##  3 access-2021-02-26.csv file        4.23K 2021-02-27 21:13:49
+    ##  4 access-2021-02-25.csv file        4.23K 2021-02-27 21:00:53
+    ##  5 access-2021-02-24.csv file        4.23K 2021-02-27 21:00:53
+    ##  6 access-2021-02-23.csv file        4.23K 2021-02-27 21:00:53
+    ##  7 access-2021-02-22.csv file        4.23K 2021-02-27 21:00:53
+    ##  8 access-2021-02-21.csv file        4.23K 2021-02-27 21:00:53
+    ##  9 access-2021-02-20.csv file        4.23K 2021-02-27 21:00:53
+    ## 10 access-2021-02-19.csv file        4.23K 2021-02-27 21:00:53
+    ## # … with 264 more rows
