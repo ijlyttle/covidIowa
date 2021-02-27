@@ -26,5 +26,5 @@ Imports:
     projthis,
     pagedown
 Remotes:
-  ijlyttle/projthis
+  ijlyttle/projthis,
   rlesur/crrri

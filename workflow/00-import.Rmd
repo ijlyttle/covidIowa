@@ -53,7 +53,7 @@ In the future, it may be interesting for this step (downloading the html file) t
 
 ```{r}
 chrome <- Chrome$new(bin = pagedown::find_chrome())
-client <- chrome$connect() 
+client <- chrome$connect()
 ```
 
 ```{r}
