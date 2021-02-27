@@ -1,0 +1,14 @@
+Package: covidIowa
+Title: County-level COVID-91 Data for Iowa
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Ian J",
+           family = "Lyttle",
+           role = c("aut", "cre"),
+           email = "ian.lyttle@se.com",
+           comment = c(ORCID = "0000-0001-9962-4849"))
+Description: This project scrapes the Iowa Department of Health COVID-19 site
+  daily to get county-level information on COVID-19 positive cases.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
