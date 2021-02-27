@@ -1,6 +1,6 @@
 Import data
 ================
-Compiled at 2021-02-27 18:46:30 UTC
+Compiled at 2021-02-27 21:13:15 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "0deed706-3efe-402b-b827-b58e9bb3e976")
@@ -15,8 +15,33 @@ library("fs")
 library("glue")
 library("crrri")
 library("dplyr")
+```
+
+    ## 
+    ## Attaching package: 'dplyr'
+
+    ## The following object is masked from 'package:glue':
+    ## 
+    ##     collapse
+
+    ## The following objects are masked from 'package:stats':
+    ## 
+    ##     filter, lag
+
+    ## The following objects are masked from 'package:base':
+    ## 
+    ##     intersect, setdiff, setequal, union
+
+``` r
 library("lubridate")
 ```
+
+    ## 
+    ## Attaching package: 'lubridate'
+
+    ## The following objects are masked from 'package:base':
+    ## 
+    ##     date, intersect, setdiff, union
 
 We are going to seed the dataset using some HTML files I had previously
 downloaded, so we will not start the target directory in a `clean` state
@@ -60,10 +85,9 @@ The **crrri** package is not on CRAN, and it requires that you have
 Chrome installed on your computer, so that it can call it in the
 background. To run Chrome, the **crrri** package will need to know where
 to *find* Chrome. You can use `pagedown::find_chrome()` to find the
-location on your computer (on mine, it is
-`"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"`). The
-**crrri** package uses the environment variable `HEADLESS_CHROME` to
-look for a default value.
+location on your computer (on mine, it is `"/Applications/Google
+Chrome.app/Contents/MacOS/Google Chrome"`). The **crrri** package uses
+the environment variable `HEADLESS_CHROME` to look for a default value.
 
 In the future, it may be interesting for this step (downloading the html
 file) to be split into its own Action (using JS).
@@ -74,10 +98,8 @@ chrome <- Chrome$new(bin = pagedown::find_chrome())
 
     ## Running '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' \
     ##   --no-first-run --headless \
-    ##   '--user-data-dir=/Users/sesa19001/Library/Application Support/r-crrri/chrome-data-dir-wydnvxqt' \
-    ##   '--remote-debugging-port=9222' \
-    ##   '--proxy-server=http://force-proxy-eur.pac.schneider-electric.com:80' \
-    ##   '--proxy-bypass-list=localhost;127.0.0.1;github.schneider-electric.com;repo.continuum.io;github-development.schneider-electric.com'
+    ##   '--user-data-dir=/Users/runner/Library/Application Support/r-crrri/chrome-data-dir-tnzdexmj' \
+    ##   '--remote-debugging-port=9222'
 
 ``` r
 client <- chrome$connect()
@@ -145,8 +167,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 2 x 4
     ##   path              type             size modification_time  
     ##   <fs::path>        <fct>     <fs::bytes> <dttm>             
-    ## 1 county-population directory          96 2021-02-27 18:41:46
-    ## 2 idph-html         directory       8.75K 2021-02-27 18:46:10
+    ## 1 county-population directory          96 2021-02-27 21:00:34
+    ## 2 idph-html         directory       8.75K 2021-02-27 21:13:39
 
 ``` r
 projthis::proj_dir_info(path_target("county-population")) 
@@ -155,7 +177,7 @@ projthis::proj_dir_info(path_target("county-population"))
     ## # A tibble: 1 x 4
     ##   path                       type         size modification_time  
     ##   <fs::path>                 <fct> <fs::bytes> <dttm>             
-    ## 1 iowa-county-population.xls file         230K 2021-02-27 18:29:28
+    ## 1 iowa-county-population.xls file         230K 2021-02-27 21:00:34
 
 ``` r
 projthis::proj_dir_info(path_target("idph-html")) %>% 
@@ -165,14 +187,14 @@ projthis::proj_dir_info(path_target("idph-html")) %>%
     ## # A tibble: 278 x 4
     ##    path                   type         size modification_time  
     ##    <fs::path>             <fct> <fs::bytes> <dttm>             
-    ##  1 access-2021-02-27.html file        5.39K 2021-02-27 18:46:47
-    ##  2 access-2021-02-26.html file      489.68K 2021-02-27 16:23:59
-    ##  3 access-2021-02-25.html file      489.68K 2021-02-27 16:23:59
-    ##  4 access-2021-02-24.html file      489.68K 2021-02-27 16:23:59
-    ##  5 access-2021-02-23.html file      489.68K 2021-02-27 16:23:59
-    ##  6 access-2021-02-22.html file      491.79K 2021-02-27 16:23:59
-    ##  7 access-2021-02-21.html file      491.79K 2021-02-27 16:23:59
-    ##  8 access-2021-02-20.html file      491.79K 2021-02-27 16:23:59
-    ##  9 access-2021-02-19.html file      491.79K 2021-02-27 16:23:59
-    ## 10 access-2021-02-18.html file      494.27K 2021-02-27 16:23:59
+    ##  1 access-2021-02-27.html file         490K 2021-02-27 21:13:39
+    ##  2 access-2021-02-26.html file         490K 2021-02-27 21:00:52
+    ##  3 access-2021-02-25.html file         490K 2021-02-27 21:00:52
+    ##  4 access-2021-02-24.html file         490K 2021-02-27 21:00:52
+    ##  5 access-2021-02-23.html file         490K 2021-02-27 21:00:52
+    ##  6 access-2021-02-22.html file         492K 2021-02-27 21:00:52
+    ##  7 access-2021-02-21.html file         492K 2021-02-27 21:00:52
+    ##  8 access-2021-02-20.html file         492K 2021-02-27 21:00:52
+    ##  9 access-2021-02-19.html file         492K 2021-02-27 21:00:52
+    ## 10 access-2021-02-18.html file         494K 2021-02-27 21:00:52
     ## # … with 268 more rows
