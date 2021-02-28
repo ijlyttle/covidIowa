@@ -86,7 +86,7 @@ jobs:
         # - to run another workflow, add another call
         run: |
           projthis::proj_workflow_render("workflow")
-          rmarkdown::render("README.Rmd")
+          rmarkdown::render("README.Rmd", envir = new.env())
         shell: Rscript {0}
 
       # adapt this step to deploy your project
