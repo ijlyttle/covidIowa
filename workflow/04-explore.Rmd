@@ -197,15 +197,14 @@ Let's write out data:
 ggsave(path_target("iowa_cases.png"), plot = gg_iowa_cases, width = 7, height = 5)
 ggsave(path_target("iowa_change.png"), plot = gg_iowa_change, width = 7, height = 5)
 
-
 write_csv(
   iowa_cases_week, 
   path_target("iowa_cases_week.csv")
 )
 
 write_csv(
-  iowa_county_cases_week_current, 
-  path_target("iowa_county_cases_week_current.csv")
+  iowa_county_cases_week, 
+  path_target("iowa_county_cases_week.csv")
 )
 ```
 

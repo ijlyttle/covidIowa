@@ -27,18 +27,48 @@ library("glue")
 library("dplyr")
 library("scales")
 library("lubridate")
+
+conflict_prefer("filter", "dplyr")
 ```
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of this repository is to give a county-level summary of COVID-19 cases in Iowa.
+The goal of this repository is to give a county-level summary of COVID-19 cases in Iowa. 
+The data is taken from a series of daily snapshots of the [accessibility page](https://coronavirus.iowa.gov/pages/access) provided by the Iowa Department of Public Health.
+
+I don't know if, in this case, **cases** means positive individuals or positive tests. 
+All I know is that small numbers are good and big numbers are bad.
+
+If you want to work with the data yourself, it's available here:
+
+- [`iowa_county_meta.csv`](https://github.com/ijlyttle/covidIowa/blob/master/workflow/data/99-publish/iowa_county_meta.csv): county metadata, things like estimated 2019 population from [ICIP](https://www.icip.iastate.edu/tables/population/counties-estimates) at Iowa State University. 
+- [`iowa_county_data.csv`](https://github.com/ijlyttle/covidIowa/blob/master/workflow/data/99-publish/iowa_county_data.csv): daily numbers by county from IDPH, going back to 2020-05-25.
+- [`iowa_county_cases_week.csv`](https://github.com/ijlyttle/covidIowa/blob/master/workflow/data/99-publish/iowa_county_data.csv): In addition to county metadata, total cases (and per 100k), one week averages of new cases (and per 100k), and week-over-week change in cases (as a ratio).
+- [`iowa_cases_week.csv`](https://github.com/ijlyttle/covidIowa/blob/master/workflow/data/99-publish/iowa_county_data.csv): Similar to `iowa_county_cases_week.csv`, but aggregated for the entire state.
+
+## Plots
 
 ![](workflow/data/99-publish/iowa_cases.png)
 
 ![](workflow/data/99-publish/iowa_change.png)
 ```{r}
 iowa_county_cases_week_current <- 
-  read_csv(fs::path(params$publish, "iowa_county_cases_week_current.csv"))
+  read_csv(
+    fs::path(params$publish, "iowa_county_cases_week.csv"), 
+    col_types = cols(
+      date = col_date(format = ""),
+      fips = col_double(),
+      county = col_character(),
+      population = col_double(),
+      population_group = col_character(),
+      cases_total = col_double(),
+      cases_total_per100k = col_double(),
+      cases_avg_week = col_double(),
+      cases_avg_week_per100k = col_double(),
+      cases_week_growth = col_double()
+    )
+  ) %>%
+  filter(date == max(date))
 ```
 
 ```{r}
@@ -48,7 +78,7 @@ iowa_cases_week <-
 ```
 
 ```{r}
-make_table <- function(.data, arr, n = 5, by = county) {
+make_table <- function(.data, arr, n = 10, by = county) {
   
   .data %>%
   dplyr::arrange({{ arr }}) %>%
