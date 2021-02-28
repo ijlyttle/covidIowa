@@ -1,6 +1,6 @@
 Workflow
 ================
-Compiled at 2021-02-28 18:06:24 UTC
+Compiled at 2021-02-28 21:57:01 UTC
 
 ``` r
 here::i_am("README.Rmd", uuid = "c0fce685-fcbc-40c7-97d2-f9ba37fdaac5")
@@ -14,7 +14,9 @@ In this workflow, we will:
   - [import](00-import.md):
       - daily snapshots of the [IDPH accessibility
         page](https://coronavirus.iowa.gov/pages/access)
-      - county metadata
+      - county population from
+        [ICIP](https://www.icip.iastate.edu/tables/population/counties-estimates)
+        at Iowa State University.
   - extract the [county metadata](01-county-metadata.md)
   - [scrape](02-scrape-idph.md) the data from the IDPH shapshots
   - [merge](03-merge.md) IDPH data
