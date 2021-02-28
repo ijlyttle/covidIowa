@@ -29,7 +29,6 @@ library("scales")
 library("lubridate")
 
 conflict_prefer("filter", "dplyr")
-conflict_prefer("cols", "readr")
 ```
 <!-- badges: start -->
 <!-- badges: end -->
@@ -57,17 +56,17 @@ Processed datasets are also available here:
 iowa_county_cases_week_current <- 
   read_csv(
     fs::path(params$publish, "iowa_county_cases_week.csv"), 
-    col_types = cols(
-      date = col_date(format = ""),
-      fips = col_double(),
-      county = col_character(),
-      population = col_double(),
-      population_group = col_character(),
-      cases_total = col_double(),
+    col_types = readr::cols(
+      date = readr::col_date(format = ""),
+      fips = readr::col_double(),
+      county = readr::col_character(),
+      population = readr::col_double(),
+      population_group = readr::col_character(),
+      cases_total = readr::col_double(),
       cases_total_per100k = col_double(),
-      cases_avg_week = col_double(),
-      cases_avg_week_per100k = col_double(),
-      cases_week_growth = col_double()
+      cases_avg_week = readr::col_double(),
+      cases_avg_week_per100k = readr::col_double(),
+      cases_week_growth = readr::col_double()
     )
   ) %>%
   filter(date == max(date))
