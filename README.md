@@ -1,4 +1,4 @@
-Compiled at 2021-02-28 23:24:58 UTC
+Compiled at 2021-02-28 23:26:37 UTC
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -90,7 +90,7 @@ Most positive-tests, per-capita:
 |     Osceola |                    1.6 |                            26.4 |                 28.6% |
 |      Clarke |                    2.4 |                            25.9 |                -17.2% |
 
-Most growth in positive-tests, week-over-week:
+Most growth in positive tests, week-over-week:
 
 |      county | daily pos. (week avg.) | daily pos. per 100k (week avg.) | week-over-week change |
 |------------:|-----------------------:|--------------------------------:|----------------------:|
@@ -105,7 +105,7 @@ Most growth in positive-tests, week-over-week:
 |  Pocahontas |                    0.4 |                             6.5 |                 42.9% |
 |     O’Brien |                    2.7 |                            19.7 |                 36.8% |
 
-Biggest decline in positive-tests, week-over-week:
+Biggest decline in positive tests, week-over-week:
 
 |     county | daily pos. (week avg.) | daily pos. per 100k (week avg.) | week-over-week change |
 |-----------:|-----------------------:|--------------------------------:|----------------------:|

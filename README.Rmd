@@ -120,13 +120,13 @@ Most positive-tests, per-capita:
 make_table(iowa_county_cases_week_current, desc(cases_avg_week_per100k))
 ```
 
-Most growth in positive-tests, week-over-week:
+Most growth in positive tests, week-over-week:
 
 ```{r}
 make_table(iowa_county_cases_week_current, desc(cases_week_growth))
 ```
 
-Biggest decline in positive-tests, week-over-week:
+Biggest decline in positive tests, week-over-week:
 
 ```{r}
 make_table(iowa_county_cases_week_current, cases_week_growth)
