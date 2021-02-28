@@ -90,8 +90,8 @@ make_table <- function(.data, arr, n = 10, by = county) {
   head(n) %>%
   dplyr::transmute(
     {{ by }}, 
-    `daily positives (week avg)` = round(cases_avg_week, 1),
-    `daily positives per 100k (week avg)` = round(cases_avg_week_per100k, 1),
+    `daily pos. (week avg.)` = round(cases_avg_week, 1),
+    `daily pos. per 100k (week avg.)` = round(cases_avg_week_per100k, 1),
     `week-over-week change` = scales::label_percent(0.1)(cases_week_growth)
   ) %>%
   knitr::kable(align = "r")
@@ -99,6 +99,8 @@ make_table <- function(.data, arr, n = 10, by = county) {
 ```
 
 ## Tables as of `r unique(iowa_county_cases_week_current$date)`
+
+I believe these numbers refer to positive tests, not to newly-reported positive individuals.
 
 For the entire state, over the past week: 
 
