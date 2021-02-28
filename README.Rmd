@@ -42,13 +42,19 @@ iowa_county_cases_week_current <-
 ```
 
 ```{r}
-make_table <- function(.data, arr, n = 5) {
+iowa_cases_week <- 
+  read_csv(fs::path(params$publish, "iowa_cases_week.csv")) %>%
+  mutate(county = "")
+```
+
+```{r}
+make_table <- function(.data, arr, n = 5, by = county) {
   
   .data %>%
-  dplyr::arrange({{arr}}) %>%
+  dplyr::arrange({{ arr }}) %>%
   head(n) %>%
   dplyr::transmute(
-    county, 
+    {{ by }}, 
     `daily new cases` = round(cases_avg_week, 1),
     `daily new cases per 100k` = round(cases_avg_week_per100k, 1),
     `week-over-week change` = scales::label_percent()(cases_week_growth)
@@ -58,6 +64,12 @@ make_table <- function(.data, arr, n = 5) {
 ```
 
 ## Tables as of `r unique(iowa_county_cases_week_current$date)`
+
+For the entire state, over the past week:
+
+```{r}
+make_table(iowa_cases_week, desc(date), n = 7, by = date)
+```
 
 For the most-populated counties:
 
