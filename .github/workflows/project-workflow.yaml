@@ -23,9 +23,9 @@ on:
   push:
     paths:
       - "**.Rmd"
-    # run at 16h15 UTC (11h15 Iowa, daylight-saving-time)
-    - cron:  '15 16 * * *'
-    - cron:  '00 20 * * *' # later in the day, just to be safe
+      # run at 16h15 UTC (11h15 Iowa, daylight-saving-time)
+      - cron:  '15 16 * * *'
+      - cron:  '00 20 * * *' # later in the day, just to be safe
 
 name: run-workflows
 
