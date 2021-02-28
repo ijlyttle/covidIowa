@@ -29,6 +29,10 @@ library("scales")
 library("lubridate")
 
 conflict_prefer("filter", "dplyr")
+conflict_prefer("cols", "readr")
+conflict_prefer("col_character", "readr")
+conflict_prefer("col_date", "readr")
+conflict_prefer("col_double", "readr")
 ```
 <!-- badges: start -->
 <!-- badges: end -->
