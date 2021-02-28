@@ -1,4 +1,4 @@
-Compiled at 2021-02-28 23:23:19 UTC
+Compiled at 2021-02-28 23:24:58 UTC
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -75,7 +75,7 @@ For the most-populated counties:
 |        Dallas |                   25.3 |                            27.1 |                 16.5% |
 | Pottawattamie |                   14.7 |                            15.8 |                 10.0% |
 
-Most cases reported, per-capita:
+Most positive-tests, per-capita:
 
 |      county | daily pos. (week avg.) | daily pos. per 100k (week avg.) | week-over-week change |
 |------------:|-----------------------:|--------------------------------:|----------------------:|
@@ -90,7 +90,7 @@ Most cases reported, per-capita:
 |     Osceola |                    1.6 |                            26.4 |                 28.6% |
 |      Clarke |                    2.4 |                            25.9 |                -17.2% |
 
-Most growth in cases, week-over-week:
+Most growth in positive-tests, week-over-week:
 
 |      county | daily pos. (week avg.) | daily pos. per 100k (week avg.) | week-over-week change |
 |------------:|-----------------------:|--------------------------------:|----------------------:|
@@ -105,7 +105,7 @@ Most growth in cases, week-over-week:
 |  Pocahontas |                    0.4 |                             6.5 |                 42.9% |
 |     O’Brien |                    2.7 |                            19.7 |                 36.8% |
 
-Biggest decline in cases, week-over-week:
+Biggest decline in positive-tests, week-over-week:
 
 |     county | daily pos. (week avg.) | daily pos. per 100k (week avg.) | week-over-week change |
 |-----------:|-----------------------:|--------------------------------:|----------------------:|
