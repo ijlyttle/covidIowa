@@ -57,7 +57,7 @@ make_table <- function(.data, arr, n = 5) {
 }
 ```
 
-## Tables as of `r today()`
+## Tables as of `r unique(iowa_county_cases_week_current$date)`
 
 For the most-populated counties:
 
