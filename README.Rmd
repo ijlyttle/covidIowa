@@ -87,7 +87,7 @@ make_table <- function(.data, arr, n = 10, by = county) {
     {{ by }}, 
     `daily new cases` = round(cases_avg_week, 1),
     `daily new cases per 100k` = round(cases_avg_week_per100k, 1),
-    `week-over-week change` = scales::label_percent()(cases_week_growth)
+    `week-over-week change` = scales::label_percent(0.1)(cases_week_growth)
   ) %>%
   knitr::kable(align = "r")
 }
