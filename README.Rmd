@@ -40,7 +40,7 @@ conflict_prefer("col_double", "readr")
 The goal of this repository is to give a county-level summary of COVID-19 cases in Iowa. 
 The data is taken from a series of daily snapshots of the [accessibility page](https://coronavirus.iowa.gov/pages/access) provided by the Iowa Department of Public Health.
 
-I don't know if, in this case, **cases** means positive individuals or positive tests. 
+I think that, for this dataset, **cases** means positive *tests*, not positive *individuals*, as this [comment](https://github.com/nytimes/covid-19-data/issues/546#issuecomment-784247266) by the NYT data team indicates. 
 All I know is that small numbers are good and big numbers are bad.
 
 If you want to work with the data yourself, all the code I use is published this repository, check out the [`workflow`](workflow) directory. 
@@ -90,8 +90,8 @@ make_table <- function(.data, arr, n = 10, by = county) {
   head(n) %>%
   dplyr::transmute(
     {{ by }}, 
-    `daily new cases` = round(cases_avg_week, 1),
-    `daily new cases per 100k` = round(cases_avg_week_per100k, 1),
+    `daily pos. tests (week avg)` = round(cases_avg_week, 1),
+    `daily pos. tests per 100k (week avg)` = round(cases_avg_week_per100k, 1),
     `week-over-week change` = scales::label_percent(0.1)(cases_week_growth)
   ) %>%
   knitr::kable(align = "r")

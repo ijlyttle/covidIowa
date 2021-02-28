@@ -159,9 +159,9 @@ gg_iowa_cases <-
     limits = c(0, NA)
   ) +
   labs(
-    title = glue("Newly-reported COVID-19 cases, seven-day average as of {date}"),
+    title = glue("COVID-19 positive tests, seven-day average as of {date}"),
     subtitle = "Data source: Iowa Department of Public Health",
-    fill = "new cases\nper 100k"
+    fill = "pos. tests\nper 100k"
   )
 
 gg_iowa_cases
@@ -183,7 +183,7 @@ gg_iowa_change <-
     labels = scales::label_percent()
   ) +
   labs(
-    title = glue("Week-over-week change in reported COVID-19 cases, as of {date}"),
+    title = glue("Week-over-week change in COVID-19 positive tests, as of {date}"),
     subtitle = "Data source: Iowa Department of Public Health",
     fill = "change"
   )  
