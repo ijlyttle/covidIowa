@@ -1,10 +1,11 @@
-Compiled at 2021-02-28 17:59:33 UTC
+Compiled at 2021-02-28 18:06:24 UTC
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # covidIowa
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
 The goal of this repository is to give a county-level summary of
@@ -14,56 +15,56 @@ COVID-19 cases in Iowa.
 
 ![](workflow/data/99-publish/iowa_change.png)
 
-## Tables as of 2021-02-27
+## Tables as of 2021-02-28
 
 For the entire state, over the past week:
 
 |       date | daily new cases | daily new cases per 100k | week-over-week change |
-|-----------:|----------------:|-------------------------:|----------------------:|
+| ---------: | --------------: | -----------------------: | --------------------: |
+| 2021-02-28 |           534.0 |                     16.9 |                 7.60% |
 | 2021-02-27 |           540.1 |                     17.1 |                 6.70% |
 | 2021-02-26 |           540.4 |                     17.1 |                 4.20% |
-| 2021-02-25 |           527.7 |                     16.7 |                -3.00% |
-| 2021-02-24 |           524.0 |                     16.6 |                -8.80% |
-| 2021-02-23 |           510.1 |                     16.2 |               -19.40% |
-| 2021-02-22 |           494.0 |                     15.7 |               -25.40% |
-| 2021-02-21 |           496.4 |                     15.7 |               -25.90% |
+| 2021-02-25 |           527.7 |                     16.7 |               \-3.00% |
+| 2021-02-24 |           524.0 |                     16.6 |               \-8.80% |
+| 2021-02-23 |           510.1 |                     16.2 |              \-19.40% |
+| 2021-02-22 |           494.0 |                     15.7 |              \-25.40% |
 
 For the most-populated counties:
 
 |     county | daily new cases | daily new cases per 100k | week-over-week change |
-|-----------:|----------------:|-------------------------:|----------------------:|
-|       Polk |           107.9 |                     22.0 |                 -4.3% |
-|       Linn |            20.1 |                      8.9 |                -14.9% |
-|      Scott |            21.7 |                     12.6 |                 -5.4% |
-|    Johnson |            18.7 |                     12.4 |                  5.3% |
-| Black Hawk |            13.9 |                     10.6 |                  8.3% |
+| ---------: | --------------: | -----------------------: | --------------------: |
+|       Polk |           107.4 |                     21.9 |                \-1.3% |
+|       Linn |            21.9 |                      9.6 |                \-2.4% |
+|      Scott |            21.0 |                     12.1 |                \-3.7% |
+|    Johnson |            18.1 |                     12.0 |                  2.3% |
+| Black Hawk |            13.7 |                     10.5 |                 15.7% |
 
 Most cases reported, per-capita:
 
-|   county | daily new cases | daily new cases per 100k | week-over-week change |
-|---------:|----------------:|-------------------------:|----------------------:|
-|   Jasper |            19.6 |                     52.6 |                 -5.3% |
-|  Wapello |            14.6 |                     41.7 |                  7.9% |
-|     Page |             5.7 |                     37.8 |                -67.4% |
-| Crawford |             5.1 |                     30.6 |                 34.4% |
-|   Clarke |             2.9 |                     30.4 |                  3.9% |
+|      county | daily new cases | daily new cases per 100k | week-over-week change |
+| ----------: | --------------: | -----------------------: | --------------------: |
+|      Jasper |            18.0 |                     48.4 |               \-16.9% |
+|     Wapello |            14.9 |                     42.5 |                 22.0% |
+|        Page |             5.9 |                     38.8 |               \-56.0% |
+| Buena Vista |             6.6 |                     33.5 |                103.9% |
+|    Crawford |             4.9 |                     28.9 |                 24.2% |
 
 Most growth in cases, week-over-week:
 
 |      county | daily new cases | daily new cases per 100k | week-over-week change |
-|------------:|----------------:|-------------------------:|----------------------:|
-| Buena Vista |             5.9 |                     29.9 |                 92.0% |
-|       Floyd |             1.1 |                      7.3 |                 87.5% |
-|      Hardin |             3.6 |                     21.2 |                 68.4% |
-|    Harrison |             2.1 |                     15.3 |                 57.1% |
-|    Franklin |             1.0 |                      9.9 |                 55.5% |
+| ----------: | --------------: | -----------------------: | --------------------: |
+| Buena Vista |             6.6 |                     33.5 |               103.90% |
+|    Harrison |             2.4 |                     17.3 |                71.40% |
+|        Tama |             3.4 |                     20.3 |                63.20% |
+|      Bremer |             5.3 |                     21.1 |                63.00% |
+|       Mills |             2.0 |                     13.2 |                61.60% |
 
 Biggest decline in cases, week-over-week:
 
 |     county | daily new cases | daily new cases per 100k | week-over-week change |
-|-----------:|----------------:|-------------------------:|----------------------:|
-|       Page |             5.7 |                     37.8 |                -67.4% |
-| Washington |             1.6 |                      7.2 |                -58.1% |
-|      Adair |             1.9 |                     26.0 |                -50.0% |
-|    Audubon |             0.6 |                     10.4 |                -45.0% |
-|     Taylor |             0.3 |                      4.7 |                -43.7% |
+| ---------: | --------------: | -----------------------: | --------------------: |
+| Washington |             1.3 |                      5.9 |              \-61.00% |
+|      Adair |             1.6 |                     22.0 |              \-57.20% |
+|       Page |             5.9 |                     38.8 |              \-56.00% |
+|     Taylor |             0.3 |                      4.7 |              \-43.70% |
+|   Cherokee |             0.7 |                      6.4 |              \-42.90% |
