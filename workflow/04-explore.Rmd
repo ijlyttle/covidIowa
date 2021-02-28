@@ -161,7 +161,7 @@ gg_iowa_cases <-
   labs(
     title = glue("COVID-19 positive tests, seven-day average as of {date}"),
     subtitle = "Data source: Iowa Department of Public Health",
-    fill = "pos. tests\nper 100k"
+    fill = "positives\nper 100k"
   )
 
 gg_iowa_cases
