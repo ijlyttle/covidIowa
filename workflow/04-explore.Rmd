@@ -1,0 +1,219 @@
+---
+title: "04-explore"
+date: "Compiled at `r format(Sys.time(), '%Y-%m-%d %H:%M:%S', tz = 'UTC')` UTC"
+output: github_document
+params:
+  name: "04-explore" # change if you rename file
+---
+
+```{r here, message=FALSE}
+here::i_am(paste0(params$name, ".Rmd"), uuid = "490e689e-0ba3-47f9-8e87-8e1d74cdd841")
+```
+
+The purpose of this document is explore the Iowa COVID data, by county.
+
+```{r packages}
+library("conflicted")
+library("vroom")
+library("dplyr")
+library("readr")
+library("USAboundaries") # also install_github("ropensci/USAboundariesData")
+library("USAboundariesData") # also install_github("ropensci/USAboundariesData")
+library("sf")
+library("glue")
+library("ggplot2")
+
+conflict_prefer("filter", "dplyr")
+conflict_prefer("select", "dplyr")
+```
+
+```{r directories}
+# create or *empty* the target directory, used to write this file's data: 
+projthis::proj_create_dir_target(params$name, clean = TRUE)
+
+# function to get path to target directory: path_target("sample.csv")
+path_target <- projthis::proj_path_target(params$name)
+
+# function to get path to previous data: path_source("00-import", "sample.csv")
+path_source <- projthis::proj_path_source(params$name)
+```
+
+## Tasks
+
+### Read
+
+```{r}
+iowa_county_meta <- 
+  vroom(path_source("01-county-metadata", "iowa_county_meta.csv"))
+
+iowa_county_data <- vroom(
+  path_source("03-merge", "iowa_county_data.csv")
+) 
+```
+
+### Wrangle
+
+Let's define some functions:
+
+```{r}
+growth <- function(x) {
+  # week-over-week growth, normalized by previous week
+  
+  # use "+ 1" in denominator to avoid division by zero
+  result <- (x - dplyr::lag(x, 7)) / (dplyr::lag(x, 7) + 1) 
+  
+  # three digits should be more than enough
+  round(result, 3)
+}
+
+per_100k <- function(x, pop) {
+  result <- x / (pop / 1e5)
+  
+  round(result, 3)
+}
+```
+
+```{r}
+iowa_county_cases_week <-
+  iowa_county_data %>%
+  right_join(iowa_county_meta, by = c("fips", "county")) %>%
+  group_by(county) %>%
+  arrange(date, desc(population)) %>%
+  transmute(
+    date,
+    fips,
+    county,
+    population,
+    population_group,
+    cases_total = cases, 
+    cases_total_per100k = per_100k(cases_total, population),
+    cases_avg_week = ((cases - dplyr::lag(cases_total, 7)) / 7) %>% round(3) ,
+    cases_avg_week_per100k = per_100k(cases_avg_week, population),
+    cases_week_growth = growth(cases_avg_week)
+  ) %>%
+  print()  
+```
+
+```{r}
+iowa_cases_week <-
+  iowa_county_data %>%
+  group_by(date) %>%
+  summarise(
+    cases = sum(cases)
+  ) %>%
+  transmute(
+    date,
+    population = sum(iowa_county_meta$population),
+    cases_total = cases, 
+    cases_total_per100k = per_100k(cases_total, population),
+    cases_avg_week = ((cases - dplyr::lag(cases_total, 7)) / 7) %>% round(3) ,
+    cases_avg_week_per100k = per_100k(cases_avg_week, population),
+    cases_week_growth = growth(cases_avg_week)
+  )
+```
+
+## Plot
+
+We just want the latest day:
+
+```{r}
+iowa_county_cases_week_current <- 
+  iowa_county_cases_week %>%
+  filter(date == max(date))
+```
+
+```{r}
+date <- unique(iowa_county_cases_week_current$date)
+```
+
+```{r}
+iowa_map <- us_counties(resolution = "low", state = "Iowa")
+```
+
+```{r}
+iowa_plot_data <- 
+  iowa_map %>%
+  transmute(fips = as.numeric(geoid), geometry) %>%
+  left_join(iowa_county_meta, by = "fips") %>%
+  left_join(
+    iowa_county_cases_week_current %>% select(-population, -population_group), 
+    by = c("fips", "county")
+  )
+
+iowa_ggplot <- function(.data, var) {
+  ggplot(.data) + 
+    geom_sf(aes(fill = {{ var }}), color = "white") + 
+    theme_void() + 
+    theme(
+      legend.text.align = 1 # right-justify
+    )
+}  
+```
+
+```{r}
+gg_iowa_cases <-
+  iowa_ggplot(iowa_plot_data, cases_avg_week_per100k) +
+  scale_fill_distiller(
+    palette = "Oranges", 
+    direction = 1,
+    limits = c(0, NA)
+  ) +
+  labs(
+    title = glue("Newly-reported COVID-19 cases, seven-day average as of {date}"),
+    subtitle = "Data source: Iowa Department of Public Health",
+    fill = "new cases\nper 100k"
+  )
+
+gg_iowa_cases
+```
+
+```{r}
+# see https://github.com/tidyverse/ggplot2/issues/3738#issuecomment-583750802
+mid_rescaler <- function(mid = 0) {
+  function(x, to = c(0, 1), from = range(x, na.rm = TRUE)) {
+    scales::rescale_mid(x, to, from, mid)
+  }
+}
+
+gg_iowa_change <- 
+  iowa_ggplot(iowa_plot_data, cases_week_growth) +
+  scale_fill_distiller(
+    palette = "PuOr", 
+    rescaler = mid_rescaler(),
+    labels = scales::label_percent()
+  ) +
+  labs(
+    title = glue("Week-over-week change in reported COVID-19 cases, as of {date}"),
+    subtitle = "Data source: Iowa Department of Public Health",
+    fill = "change"
+  )  
+
+gg_iowa_change
+```
+
+Let's write out data:
+
+```{r}
+ggsave(path_target("iowa_cases.png"), plot = gg_iowa_cases, width = 7, height = 5)
+ggsave(path_target("iowa_change.png"), plot = gg_iowa_change, width = 7, height = 5)
+
+
+write_csv(
+  iowa_cases_week, 
+  path_target("iowa_cases_week.csv")
+)
+
+write_csv(
+  iowa_county_cases_week_current, 
+  path_target("iowa_county_cases_week_current.csv")
+)
+```
+
+
+## Files written
+
+These files have been written to the target directory, ```r paste0("data/", params$name)```:
+
+```{r list-files-target}
+projthis::proj_dir_info(path_target())
+```

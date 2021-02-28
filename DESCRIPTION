@@ -27,14 +27,16 @@ Imports:
     pagedown,
     forcats,
     ggplot2,
-    maps,
     readr,
     readxl,
     stringr,
     purrr,
     rvest,
     tibble,
-    xml2
+    xml2,
+    vroom,
+    maps,
 Remotes:
   ijlyttle/projthis,
-  rlesur/crrri
+  rlesur/crrri,
+  ropensci/USAboundariesData

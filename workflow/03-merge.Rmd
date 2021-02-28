@@ -1,0 +1,69 @@
+---
+title: "Merge data"
+date: "Compiled at `r format(Sys.time(), '%Y-%m-%d %H:%M:%S', tz = 'UTC')` UTC"
+output: github_document
+params:
+  name: "03-merge" # change if you rename file
+---
+
+```{r here, message=FALSE}
+here::i_am(paste0(params$name, ".Rmd"), uuid = "395c01d6-11f2-4832-9c79-3089737223b8")
+```
+
+The purpose of this document is to merge the daily datasets.
+
+```{r packages}
+library("conflicted")
+library("fs")
+library("readr")
+library("purrr")
+library("dplyr")
+library("vroom")
+```
+
+```{r directories}
+# create or *empty* the target directory, used to write this file's data: 
+projthis::proj_create_dir_target(params$name, clean = TRUE)
+
+# function to get path to target directory: path_target("sample.csv")
+path_target <- projthis::proj_path_target(params$name)
+
+# function to get path to previous data: path_source("00-import", "sample.csv")
+path_source <- projthis::proj_path_source(params$name)
+```
+
+## Tasks
+
+Let's get the names of all the valid CSV files:
+
+```{r}
+files <- 
+  fs::dir_ls(
+    path_source("02-scrape-idph"), 
+    regexp = "access-\\d{4}-\\d{2}-\\d{2}\\.csv"
+  )
+```
+
+Let's read them in:
+
+```{r}
+iowa_county_data <- 
+  vroom(files) %>%
+  arrange(date)
+
+tail(iowa_county_data)
+```
+
+Let's write it out:
+
+```{r}
+write_csv(iowa_county_data, path_target("iowa_county_data.csv"))
+```
+
+## Files written
+
+These files have been written to the target directory, ```r paste0("data/", params$name)```:
+
+```{r list-files-target}
+projthis::proj_dir_info(path_target())
+```

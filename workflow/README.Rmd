@@ -16,11 +16,11 @@ In this workflow, we will:
 - [import](00-import.md):
    - daily snapshots of the [IDPH accessibility page](https://coronavirus.iowa.gov/pages/access)
    - county metadata
-- scrape the data from the shapshots
-- extract the county metadata
-- merge the data into various forms
-- plot the data
-- publish the data and the plots
+- extract the [county metadata](01-county-metadata.md)
+- [scrape](02-scrape-idph.md) the data from the IDPH shapshots
+- [merge](03-merge.md) IDPH data
+- [explore](04-explore.md) the data
+- [publish](99-publish.md) the data and the plots
 
 ```{r packages}
 library("conflicted")

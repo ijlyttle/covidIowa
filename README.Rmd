@@ -1,0 +1,80 @@
+---
+output: github_document
+params:
+  publish: "workflow/data/99-publish"
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# covidIowa
+
+```{r}
+library("conflicted")
+library("readr")
+library("glue")
+library("dplyr")
+library("scales")
+```
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of this repository is to give a county-level summary of COVID-19 cases in Iowa.
+
+![](workflow/data/99-publish/iowa_cases.png)
+
+![](workflow/data/99-publish/iowa_change.png)
+```{r}
+iowa_county_cases_week_current <- 
+  read_csv(fs::path(params$publish, "iowa_county_cases_week_current.csv"))
+```
+
+```{r}
+make_table <- function(.data, arr, n = 5) {
+  
+  .data %>%
+  dplyr::arrange({{arr}}) %>%
+  head(n) %>%
+  dplyr::transmute(
+    county, 
+    `daily new cases` = round(cases_avg_week, 1),
+    `daily new cases per 100k` = round(cases_avg_week_per100k, 1),
+    `week-over-week change` = scales::label_percent()(cases_week_growth)
+  ) %>%
+  knitr::kable(align = "r")
+}
+```
+
+For the most-populated counties:
+
+```{r}
+make_table(iowa_county_cases_week_current, desc(population))
+```
+
+Most cases reported, per-capita:
+
+```{r}
+make_table(iowa_county_cases_week_current, desc(cases_avg_week_per100k))
+```
+
+Most growth in cases, week-over-week:
+
+```{r}
+make_table(iowa_county_cases_week_current, desc(cases_week_growth))
+```
+
+Biggest decline in cases, week-over-week:
+
+```{r}
+make_table(iowa_county_cases_week_current, cases_week_growth)
+```
