@@ -1,6 +1,6 @@
 Workflow
 ================
-Compiled at 2021-02-28 03:47:05 UTC
+Compiled at 2021-02-28 04:01:29 UTC
 
 ``` r
 here::i_am("README.Rmd", uuid = "c0fce685-fcbc-40c7-97d2-f9ba37fdaac5")
@@ -11,15 +11,17 @@ path_source <- projthis::proj_path_source("README")
 
 In this workflow, we will:
 
--   [import](00-import.md):
-    -   daily snapshots of the [IDPH accessibility
+  - [import](00-import.md):
+      - daily snapshots of the [IDPH accessibility
         page](https://coronavirus.iowa.gov/pages/access)
-    -   county metadata
--   extract the [county metadata](01-county-metadata.md)
--   [scrape](02-scrape-idph.md) the data from the IDPH shapshots
--   [merge](03-merge.md) IDPH data
--   [explore](04-explore.md) the data
--   [publish](99-publish.md) the data and the plots
+      - county metadata
+  - extract the [county metadata](01-county-metadata.md)
+  - [scrape](02-scrape-idph.md) the data from the IDPH shapshots
+  - [merge](03-merge.md) IDPH data
+  - [explore](04-explore.md) the data
+  - [publish](99-publish.md) the data and the plots
+
+<!-- end list -->
 
 ``` r
 library("conflicted")
