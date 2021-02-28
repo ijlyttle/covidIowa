@@ -100,7 +100,7 @@ make_table <- function(.data, arr, n = 10, by = county) {
 
 ## Tables as of `r unique(iowa_county_cases_week_current$date)`
 
-For the entire state, over the past week:
+For the entire state, over the past week: 
 
 ```{r}
 make_table(iowa_cases_week, desc(date), n = 7, by = date)
