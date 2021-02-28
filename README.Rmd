@@ -29,6 +29,7 @@ library("scales")
 library("lubridate")
 
 conflict_prefer("filter", "dplyr")
+conflict_prefer("cols", "readr")
 ```
 <!-- badges: start -->
 <!-- badges: end -->
@@ -39,7 +40,8 @@ The data is taken from a series of daily snapshots of the [accessibility page](h
 I don't know if, in this case, **cases** means positive individuals or positive tests. 
 All I know is that small numbers are good and big numbers are bad.
 
-If you want to work with the data yourself, it's available here:
+If you want to work with the data yourself, all the code I use is published this repository, check out the [`workflow`](workflow) directory. 
+Processed datasets are also available here:
 
 - [`iowa_county_meta.csv`](https://github.com/ijlyttle/covidIowa/blob/master/workflow/data/99-publish/iowa_county_meta.csv): county metadata, things like estimated 2019 population from [ICIP](https://www.icip.iastate.edu/tables/population/counties-estimates) at Iowa State University. 
 - [`iowa_county_data.csv`](https://github.com/ijlyttle/covidIowa/blob/master/workflow/data/99-publish/iowa_county_data.csv): daily numbers by county from IDPH, going back to 2020-05-25.

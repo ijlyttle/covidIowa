@@ -1,4 +1,4 @@
-Compiled at 2021-02-28 21:16:32 UTC
+Compiled at 2021-02-28 21:25:52 UTC
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -17,7 +17,9 @@ I don’t know if, in this case, **cases** means positive individuals or
 positive tests. All I know is that small numbers are good and big
 numbers are bad.
 
-If you want to work with the data yourself, it’s available here:
+If you want to work with the data yourself, all the code I use is
+published this repository, check out the [`workflow`](workflow)
+directory. Processed datasets are also available here:
 
 -   [`iowa_county_meta.csv`](https://github.com/ijlyttle/covidIowa/blob/master/workflow/data/99-publish/iowa_county_meta.csv):
     county metadata, things like estimated 2019 population from
