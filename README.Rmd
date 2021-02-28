@@ -1,5 +1,6 @@
 ---
 output: github_document
+date: "Compiled at `r format(Sys.time(), '%Y-%m-%d %H:%M:%S', tz = 'UTC')` UTC"
 params:
   publish: "workflow/data/99-publish"
 ---
@@ -25,6 +26,7 @@ library("readr")
 library("glue")
 library("dplyr")
 library("scales")
+library("lubridate")
 ```
 <!-- badges: start -->
 <!-- badges: end -->
@@ -54,6 +56,8 @@ make_table <- function(.data, arr, n = 5) {
   knitr::kable(align = "r")
 }
 ```
+
+## Tables as of `r today()`
 
 For the most-populated counties:
 

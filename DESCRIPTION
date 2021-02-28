@@ -36,6 +36,11 @@ Imports:
     xml2,
     vroom,
     maps,
+    knitr,
+    scales,
+    sf,
+    USAboundaries,
+    USAboundariesData
 Remotes:
   ijlyttle/projthis,
   rlesur/crrri,

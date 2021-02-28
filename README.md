@@ -1,3 +1,4 @@
+Compiled at 2021-02-28 03:49:21 UTC
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -12,6 +13,8 @@ COVID-19 cases in Iowa.
 ![](workflow/data/99-publish/iowa_cases.png)
 
 ![](workflow/data/99-publish/iowa_change.png)
+
+## Tables as of 2021-02-27
 
 For the most-populated counties:
 
