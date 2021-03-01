@@ -1,12 +1,12 @@
 99-publish
 ================
-Compiled at 2021-02-28 23:43:13 UTC
+Compiled at 2021-03-01 20:49:41 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "da2d40a5-231f-404f-96ad-f86272f58669")
 ```
 
-The purpose of this document is …
+The purpose of this document is to make data and images available.
 
 ``` r
 library("conflicted")
@@ -81,9 +81,9 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 6 x 4
     ##   path                       type         size modification_time  
     ##   <fs::path>                 <fct> <fs::bytes> <dttm>             
-    ## 1 iowa_cases.png             file      202.28K 2021-02-28 23:43:13
-    ## 2 iowa_cases_week.csv        file       14.77K 2021-02-28 23:43:13
-    ## 3 iowa_change.png            file      180.09K 2021-02-28 23:43:13
-    ## 4 iowa_county_cases_week.csv file        1.78M 2021-02-28 23:43:13
-    ## 5 iowa_county_data.csv       file        1.06M 2021-02-28 23:43:13
-    ## 6 iowa_county_meta.csv       file        6.62K 2021-02-28 23:43:13
+    ## 1 iowa_cases.png             file      202.89K 2021-03-01 20:49:41
+    ## 2 iowa_cases_week.csv        file       14.83K 2021-03-01 20:49:41
+    ## 3 iowa_change.png            file      179.64K 2021-03-01 20:49:41
+    ## 4 iowa_county_cases_week.csv file        1.79M 2021-03-01 20:49:41
+    ## 5 iowa_county_data.csv       file        1.06M 2021-03-01 20:49:41
+    ## 6 iowa_county_meta.csv       file        6.62K 2021-03-01 20:49:41
