@@ -46,13 +46,13 @@ All I know is that small numbers are good and big numbers are bad.
 If you want to work with the data yourself, all the code I use is published this repository, check out the [`workflow`](workflow) directory. 
 Processed datasets are also available here:
 
-- [`iowa_county_meta.csv`](https://github.com/ijlyttle/covidIowa/blob/master/workflow/data/99-publish/iowa_county_meta.csv): county metadata, things like estimated 2019 population from [ICIP](https://www.icip.iastate.edu/tables/population/counties-estimates) at Iowa State University. 
+- [`iowa_county_meta.csv`](https://raw.githubusercontent.com/ijlyttle/covidIowa/master/workflow/data/99-publish/iowa_county_meta.csv): county metadata, things like estimated 2019 population from [ICIP](https://www.icip.iastate.edu/tables/population/counties-estimates) at Iowa State University. 
 
-- [`iowa_county_data.csv`](https://github.com/ijlyttle/covidIowa/blob/master/workflow/data/99-publish/iowa_county_data.csv): daily numbers by county from IDPH, going back to 2020-05-25.
+- [`iowa_county_data.csv`](https://raw.githubusercontent.com/ijlyttle/covidIowa/master/workflow/data/99-publish/iowa_county_data.csv): daily numbers by county from IDPH, going back to 2020-05-25.
 
-- [`iowa_county_cases_week.csv`](https://github.com/ijlyttle/covidIowa/blob/master/workflow/data/99-publish/iowa_county_data.csv): In addition to county metadata, total positive-tests (and per 100k), one week average of daily positive-tests (and per 100k), and week-over-week change in positive tests (as a ratio).
+- [`iowa_county_cases_week.csv`](https://raw.githubusercontent.com/ijlyttle/covidIowa/master/workflow/data/99-publish/iowa_county_data.csv): In addition to county metadata, total positive-tests (and per 100k), one week average of daily positive-tests (and per 100k), and week-over-week change in positive tests (as a ratio).
 
-- [`iowa_cases_week.csv`](https://github.com/ijlyttle/covidIowa/blob/master/workflow/data/99-publish/iowa_county_data.csv): Similar to `iowa_county_cases_week.csv`, but aggregated for the entire state.
+- [`iowa_cases_week.csv`](https://raw.githubusercontent.com/ijlyttle/covidIowa/master/workflow/data/99-publish/iowa_cases_week.csv): Similar to `iowa_county_cases_week.csv`, but aggregated for the entire state.
 
 ## Plots
 

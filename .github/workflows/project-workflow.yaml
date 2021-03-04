@@ -24,9 +24,9 @@ on:
     paths:
       - "**.Rmd"
   schedule:
-    # run at 17h15 UTC (11h15 Iowa, standard time)
-    - cron:  '15 17 * * *'
+    - cron:  '15 17 * * *' # run at 17h15 UTC (11h15 Iowa, standard time)
     - cron:  '00 20 * * *' # later in the day, just to be safe
+    - cron:  '45 23 * * *' # even later in the day, just to be safer
 
 name: run-workflows
 
