@@ -1,4 +1,4 @@
-Compiled at 2021-03-04 20:51:47 UTC
+Compiled at 2021-03-04 21:07:52 UTC
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -12,12 +12,6 @@ COVID-19 cases in Iowa. The data is taken from a series of daily
 snapshots of the [accessibility
 page](https://coronavirus.iowa.gov/pages/access) provided by the Iowa
 Department of Public Health.
-
-I think that, for this dataset, **cases** means positive *tests*, not
-positive *individuals*, as this
-[comment](https://github.com/nytimes/covid-19-data/issues/546#issuecomment-784247266)
-by the NYT data team indicates. All I know is that small numbers are
-good and big numbers are bad.
 
 If you want to work with the data yourself, all the code I use is
 published this repository, check out the [`workflow`](workflow)
@@ -48,8 +42,7 @@ directory. Processed datasets are also available here:
 
 ## Tables as of 2021-03-04
 
-I believe these numbers refer to positive tests, not to newly-reported
-positive individuals.
+As of 2021-03-04, IPDH is reporting 0 new cases since the previous day.
 
 For the entire state, over the past week:
 
@@ -78,7 +71,7 @@ For the most-populated counties:
 |        Dallas |                   18.0 |                            19.3 |                -19.9% |
 | Pottawattamie |                    9.3 |                            10.0 |                -34.5% |
 
-Most positive-tests, per-capita:
+Most positive-cases, per-capita:
 
 |      county | daily pos. (week avg.) | daily pos. per 100k (week avg.) | week-over-week change |
 |------------:|-----------------------:|--------------------------------:|----------------------:|
@@ -93,7 +86,7 @@ Most positive-tests, per-capita:
 |   Winnebago |                    2.1 |                            20.7 |                 15.8% |
 |       Lucas |                    1.7 |                            19.9 |                 18.7% |
 
-Most growth in positive tests, week-over-week:
+Most growth in positive cases, week-over-week:
 
 |    county | daily pos. (week avg.) | daily pos. per 100k (week avg.) | week-over-week change |
 |----------:|-----------------------:|--------------------------------:|----------------------:|
@@ -108,7 +101,7 @@ Most growth in positive tests, week-over-week:
 | Van Buren |                    0.4 |                             6.1 |                 42.9% |
 |     Davis |                    1.4 |                            15.9 |                 41.7% |
 
-Biggest decline in positive tests, week-over-week:
+Biggest decline in positive cases, week-over-week:
 
 |     county | daily pos. (week avg.) | daily pos. per 100k (week avg.) | week-over-week change |
 |-----------:|-----------------------:|--------------------------------:|----------------------:|
