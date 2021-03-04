@@ -119,7 +119,7 @@ iowa_since_yesterday <-
 ```
 
 
-As of `r date_latest`, IPDH is reporting `r iowa_since_yesterday` new cases since the previous day.
+As of `r date_latest`, IPDH is reporting `r iowa_since_yesterday` new cases since the previous day. 
 
 For the entire state, over the past week: 
 
