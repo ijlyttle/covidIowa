@@ -1,6 +1,6 @@
 04-explore
 ================
-Compiled at 2021-03-04 21:09:49 UTC
+Compiled at 2021-03-04 21:22:22 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "490e689e-0ba3-47f9-8e87-8e1d74cdd841")
@@ -13,18 +13,6 @@ library("conflicted")
 library("vroom")
 library("dplyr")
 library("readr")
-```
-
-    ## Registered S3 methods overwritten by 'readr':
-    ##   method           from 
-    ##   format.col_spec  vroom
-    ##   print.col_spec   vroom
-    ##   print.collector  vroom
-    ##   print.date_names vroom
-    ##   print.locale     vroom
-    ##   str.col_spec     vroom
-
-``` r
 library("USAboundaries") # also install_github("ropensci/USAboundariesData")
 library("USAboundariesData") # also install_github("ropensci/USAboundariesData")
 library("sf")
@@ -38,6 +26,8 @@ library("ggplot2")
 
 conflict_prefer("filter", "dplyr")
 ```
+
+    ## [conflicted] Removing existing preference
 
     ## [conflicted] Will prefer dplyr::filter over any other package
 
@@ -137,18 +127,18 @@ iowa_county_cases_week <-
 
     ## # A tibble: 27,529 x 10
     ## # Groups:   county [99]
-    ##    date        fips county population population_group cases_total
-    ##    <date>     <dbl> <chr>       <dbl> <chr>                  <dbl>
-    ##  1 2020-05-25 19153 Polk       490161 large                   3774
-    ##  2 2020-05-25 19113 Linn       226706 large                    935
-    ##  3 2020-05-25 19163 Scott      172943 mid-large                337
-    ##  4 2020-05-25 19103 Johns…     151140 mid-large                602
-    ##  5 2020-05-25 19013 Black…     131228 mid-large               1682
-    ##  6 2020-05-25 19193 Woodb…     103107 mid-large               2624
-    ##  7 2020-05-25 19061 Dubuq…      97311 mid-large                323
-    ##  8 2020-05-25 19169 Story       97117 mid-large                 95
-    ##  9 2020-05-25 19049 Dallas      93453 mid-large                857
-    ## 10 2020-05-25 19155 Potta…      93206 mid-large                212
+    ##    date        fips county        population population_group cases_total
+    ##    <date>     <dbl> <chr>              <dbl> <chr>                  <dbl>
+    ##  1 2020-05-25 19153 Polk              490161 large                   3774
+    ##  2 2020-05-25 19113 Linn              226706 large                    935
+    ##  3 2020-05-25 19163 Scott             172943 mid-large                337
+    ##  4 2020-05-25 19103 Johnson           151140 mid-large                602
+    ##  5 2020-05-25 19013 Black Hawk        131228 mid-large               1682
+    ##  6 2020-05-25 19193 Woodbury          103107 mid-large               2624
+    ##  7 2020-05-25 19061 Dubuque            97311 mid-large                323
+    ##  8 2020-05-25 19169 Story              97117 mid-large                 95
+    ##  9 2020-05-25 19049 Dallas             93453 mid-large                857
+    ## 10 2020-05-25 19155 Pottawattamie      93206 mid-large                212
     ## # … with 27,519 more rows, and 4 more variables: cases_total_per100k <dbl>,
     ## #   cases_avg_week <dbl>, cases_avg_week_per100k <dbl>, cases_week_growth <dbl>
 
@@ -282,7 +272,7 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 4 x 4
     ##   path                       type         size modification_time  
     ##   <fs::path>                 <fct> <fs::bytes> <dttm>             
-    ## 1 iowa_cases.png             file      203.65K 2021-03-04 21:09:52
-    ## 2 iowa_cases_week.csv        file       14.99K 2021-03-04 21:09:52
-    ## 3 iowa_change.png            file      170.14K 2021-03-04 21:09:52
-    ## 4 iowa_county_cases_week.csv file        1.81M 2021-03-04 21:09:53
+    ## 1 iowa_cases.png             file      203.71K 2021-03-04 21:22:26
+    ## 2 iowa_cases_week.csv        file       14.99K 2021-03-04 21:22:27
+    ## 3 iowa_change.png            file      170.21K 2021-03-04 21:22:27
+    ## 4 iowa_county_cases_week.csv file        1.81M 2021-03-04 21:22:27
