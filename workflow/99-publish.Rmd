@@ -3,7 +3,7 @@ title: "99-publish"
 date: "Compiled at `r format(Sys.time(), '%Y-%m-%d %H:%M:%S', tz = 'UTC')` UTC"
 output: github_document
 params:
-  name: "99-publish" # change if you rename file
+  name: "99-publish" # change if you rename file 
 ---
 
 ```{r here, message=FALSE}
