@@ -1,6 +1,6 @@
 99-publish
 ================
-Compiled at 2021-03-04 23:59:59 UTC
+Compiled at 2021-03-05 17:54:41 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "da2d40a5-231f-404f-96ad-f86272f58669")
@@ -81,9 +81,9 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 6 x 4
     ##   path                       type         size modification_time  
     ##   <fs::path>                 <fct> <fs::bytes> <dttm>             
-    ## 1 iowa_cases.png             file      203.71K 2021-03-04 23:59:59
-    ## 2 iowa_cases_week.csv        file       14.99K 2021-03-04 23:59:59
-    ## 3 iowa_change.png            file      170.21K 2021-03-04 23:59:59
-    ## 4 iowa_county_cases_week.csv file        1.81M 2021-03-04 23:59:59
-    ## 5 iowa_county_data.csv       file        1.08M 2021-03-04 23:59:59
-    ## 6 iowa_county_meta.csv       file        6.62K 2021-03-04 23:59:59
+    ## 1 iowa_cases.png             file      204.45K 2021-03-05 17:54:41
+    ## 2 iowa_cases_week.csv        file       15.04K 2021-03-05 17:54:41
+    ## 3 iowa_change.png            file      181.69K 2021-03-05 17:54:41
+    ## 4 iowa_county_cases_week.csv file        1.81M 2021-03-05 17:54:41
+    ## 5 iowa_county_data.csv       file        1.08M 2021-03-05 17:54:41
+    ## 6 iowa_county_meta.csv       file        6.62K 2021-03-05 17:54:41
