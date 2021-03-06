@@ -42,6 +42,6 @@ Imports:
     USAboundaries,
     USAboundariesData
 Remotes:
-  ijlyttle/projthis,
+  ijlyttle/projthis@feature-42-rmd-render,
   rlesur/crrri,
   ropensci/USAboundariesData
