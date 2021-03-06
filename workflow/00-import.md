@@ -1,6 +1,6 @@
 Import data
 ================
-Compiled at 2021-03-05 23:58:37 UTC
+Compiled at 2021-03-06 16:33:10 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "0deed706-3efe-402b-b827-b58e9bb3e976")
@@ -15,33 +15,8 @@ library("fs")
 library("glue")
 library("crrri")
 library("dplyr")
-```
-
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following object is masked from 'package:glue':
-    ## 
-    ##     collapse
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
-
-``` r
 library("lubridate")
 ```
-
-    ## 
-    ## Attaching package: 'lubridate'
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     date, intersect, setdiff, union
 
 We are going to seed the dataset using some HTML files I had previously
 downloaded, so we will not start the target directory in a `clean` state
@@ -98,7 +73,7 @@ chrome <- Chrome$new(bin = pagedown::find_chrome())
 
     ## Running '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' \
     ##   --no-first-run --headless \
-    ##   '--user-data-dir=/Users/runner/Library/Application Support/r-crrri/chrome-data-dir-sccfubdt' \
+    ##   '--user-data-dir=/Users/runner/Library/Application Support/r-crrri/chrome-data-dir-uwdukjaz' \
     ##   '--remote-debugging-port=9222'
 
 ``` r
@@ -167,8 +142,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 2 x 4
     ##   path              type             size modification_time  
     ##   <fs::path>        <fct>     <fs::bytes> <dttm>             
-    ## 1 county-population directory          96 2021-03-05 23:54:43
-    ## 2 idph-html         directory       8.94K 2021-03-05 23:54:47
+    ## 1 county-population directory          96 2021-03-06 16:30:42
+    ## 2 idph-html         directory       8.97K 2021-03-06 16:33:27
 
 ``` r
 projthis::proj_dir_info(path_target("county-population")) 
@@ -177,24 +152,24 @@ projthis::proj_dir_info(path_target("county-population"))
     ## # A tibble: 1 x 4
     ##   path                       type         size modification_time  
     ##   <fs::path>                 <fct> <fs::bytes> <dttm>             
-    ## 1 iowa-county-population.xls file         230K 2021-03-05 23:54:43
+    ## 1 iowa-county-population.xls file         230K 2021-03-06 16:30:42
 
 ``` r
 projthis::proj_dir_info(path_target("idph-html")) %>% 
   arrange(desc(path)) # show most-recent first
 ```
 
-    ## # A tibble: 284 x 4
+    ## # A tibble: 285 x 4
     ##    path                   type         size modification_time  
     ##    <fs::path>             <fct> <fs::bytes> <dttm>             
-    ##  1 access-2021-03-05.html file         507K 2021-03-05 23:58:54
-    ##  2 access-2021-03-04.html file         507K 2021-03-05 23:54:47
-    ##  3 access-2021-03-03.html file         507K 2021-03-05 23:54:47
-    ##  4 access-2021-03-02.html file         507K 2021-03-05 23:54:47
-    ##  5 access-2021-03-01.html file         490K 2021-03-05 23:54:47
-    ##  6 access-2021-02-28.html file         490K 2021-03-05 23:54:47
-    ##  7 access-2021-02-27.html file         490K 2021-03-05 23:54:47
-    ##  8 access-2021-02-26.html file         490K 2021-03-05 23:54:47
-    ##  9 access-2021-02-25.html file         490K 2021-03-05 23:54:47
-    ## 10 access-2021-02-24.html file         490K 2021-03-05 23:54:47
-    ## # … with 274 more rows
+    ##  1 access-2021-03-06.html file         507K 2021-03-06 16:33:27
+    ##  2 access-2021-03-05.html file         507K 2021-03-06 16:30:43
+    ##  3 access-2021-03-04.html file         507K 2021-03-06 16:30:43
+    ##  4 access-2021-03-03.html file         507K 2021-03-06 16:30:43
+    ##  5 access-2021-03-02.html file         507K 2021-03-06 16:30:43
+    ##  6 access-2021-03-01.html file         490K 2021-03-06 16:30:43
+    ##  7 access-2021-02-28.html file         490K 2021-03-06 16:30:43
+    ##  8 access-2021-02-27.html file         490K 2021-03-06 16:30:43
+    ##  9 access-2021-02-26.html file         490K 2021-03-06 16:30:43
+    ## 10 access-2021-02-25.html file         490K 2021-03-06 16:30:43
+    ## # … with 275 more rows

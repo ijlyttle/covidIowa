@@ -1,6 +1,6 @@
 04-explore
 ================
-Compiled at 2021-03-05 23:59:30 UTC
+Compiled at 2021-03-06 16:34:05 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "490e689e-0ba3-47f9-8e87-8e1d74cdd841")
@@ -13,6 +13,18 @@ library("conflicted")
 library("vroom")
 library("dplyr")
 library("readr")
+```
+
+    ## Registered S3 methods overwritten by 'readr':
+    ##   method           from 
+    ##   format.col_spec  vroom
+    ##   print.col_spec   vroom
+    ##   print.collector  vroom
+    ##   print.date_names vroom
+    ##   print.locale     vroom
+    ##   str.col_spec     vroom
+
+``` r
 library("USAboundaries") # also install_github("ropensci/USAboundariesData")
 library("USAboundariesData") # also install_github("ropensci/USAboundariesData")
 library("sf")
@@ -26,8 +38,6 @@ library("ggplot2")
 
 conflict_prefer("filter", "dplyr")
 ```
-
-    ## [conflicted] Removing existing preference
 
     ## [conflicted] Will prefer dplyr::filter over any other package
 
@@ -272,7 +282,7 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 4 x 4
     ##   path                       type         size modification_time  
     ##   <fs::path>                 <fct> <fs::bytes> <dttm>             
-    ## 1 iowa_cases.png             file      204.45K 2021-03-05 23:59:35
-    ## 2 iowa_cases_week.csv        file       15.04K 2021-03-05 23:59:35
-    ## 3 iowa_change.png            file      181.69K 2021-03-05 23:59:35
-    ## 4 iowa_county_cases_week.csv file        1.81M 2021-03-05 23:59:35
+    ## 1 iowa_cases.png             file      204.45K 2021-03-06 16:34:11
+    ## 2 iowa_cases_week.csv        file       15.04K 2021-03-06 16:34:11
+    ## 3 iowa_change.png            file      181.69K 2021-03-06 16:34:11
+    ## 4 iowa_county_cases_week.csv file        1.81M 2021-03-06 16:34:11
