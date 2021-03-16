@@ -1,5 +1,5 @@
 Package: covidIowa
-Title: County-level COVID-91 Data for Iowa
+Title: County-level COVID-19 Data for Iowa
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Ian J",
