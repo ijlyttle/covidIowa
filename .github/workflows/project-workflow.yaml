@@ -76,7 +76,7 @@ jobs:
       - name: Install dependencies
         # uncomment call to `remotes::install_local(".")` to install project as a package
         run: |
-          options(install.packages.compile.from.source = "never")
+          options(install.packages.check.source = "no")
           remotes::install_deps(dependencies = TRUE)
           # remotes::install_local(".")
         shell: Rscript {0}
