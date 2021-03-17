@@ -12,7 +12,7 @@ params:
 here::i_am(paste0(params$name, ".Rmd"), uuid = "0deed706-3efe-402b-b827-b58e9bb3e976")
 ```
 
-The purpose of this document is to collect all the data we need, in raw form.
+The purpose of this document is to collect all the data we need, in raw form. 
 
 ```{r packages}
 library("conflicted")
