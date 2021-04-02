@@ -1,6 +1,6 @@
 04-explore
 ================
-Compiled at 2021-04-02 00:13:37 UTC
+Compiled at 2021-04-02 17:13:58 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "490e689e-0ba3-47f9-8e87-8e1d74cdd841")
@@ -82,7 +82,7 @@ iowa_county_data <- vroom(
 ) 
 ```
 
-    ## Rows: 30,407
+    ## Rows: 30,507
     ## Columns: 7
     ## Delimiter: ","
     ## chr  [1]: county
@@ -135,7 +135,7 @@ iowa_county_cases_week <-
   print()  
 ```
 
-    ## # A tibble: 30,103 x 10
+    ## # A tibble: 30,202 x 10
     ## # Groups:   county [99]
     ##    date        fips county        population population_group cases_total
     ##    <date>     <dbl> <chr>              <dbl> <chr>                  <dbl>
@@ -149,7 +149,7 @@ iowa_county_cases_week <-
     ##  8 2020-05-25 19169 Story              97117 mid-large                 95
     ##  9 2020-05-25 19049 Dallas             93453 mid-large                857
     ## 10 2020-05-25 19155 Pottawattamie      93206 mid-large                212
-    ## # … with 30,093 more rows, and 4 more variables: cases_total_per100k <dbl>,
+    ## # … with 30,192 more rows, and 4 more variables: cases_total_per100k <dbl>,
     ## #   cases_avg_week <dbl>, cases_avg_week_per100k <dbl>, cases_week_growth <dbl>
 
 ``` r
@@ -282,7 +282,7 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 4 x 4
     ##   path                       type         size modification_time  
     ##   <fs::path>                 <fct> <fs::bytes> <dttm>             
-    ## 1 iowa_cases.png             file      195.22K 2021-04-02 00:13:42
-    ## 2 iowa_cases_week.csv        file       16.42K 2021-04-02 00:13:43
-    ## 3 iowa_change.png            file      167.24K 2021-04-02 00:13:43
-    ## 4 iowa_county_cases_week.csv file        1.98M 2021-04-02 00:13:43
+    ## 1 iowa_cases.png             file      195.24K 2021-04-02 17:14:03
+    ## 2 iowa_cases_week.csv        file       16.47K 2021-04-02 17:14:03
+    ## 3 iowa_change.png            file      165.97K 2021-04-02 17:14:03
+    ## 4 iowa_county_cases_week.csv file        1.99M 2021-04-02 17:14:04
