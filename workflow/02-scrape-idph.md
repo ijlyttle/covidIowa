@@ -1,6 +1,6 @@
 Scrape IDPH data
 ================
-Compiled at 2021-04-28 20:19:01 UTC
+Compiled at 2021-04-28 23:59:55 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "357772d2-af9d-4d6e-868f-3dc08773181c")
@@ -237,14 +237,14 @@ projthis::proj_dir_info(path_target()) %>%
     ## # A tibble: 332 x 4
     ##    path                  type         size modification_time  
     ##    <fs::path>            <fct> <fs::bytes> <dttm>             
-    ##  1 access-NA.csv         file        3.42K 2021-04-28 20:19:04
-    ##  2 access-2021-04-28.csv file        4.25K 2021-04-28 20:19:04
-    ##  3 access-2021-04-27.csv file        4.25K 2021-04-28 20:16:44
-    ##  4 access-2021-04-26.csv file        4.25K 2021-04-28 20:16:44
-    ##  5 access-2021-04-25.csv file        4.25K 2021-04-28 20:16:44
-    ##  6 access-2021-04-24.csv file        4.25K 2021-04-28 20:16:44
-    ##  7 access-2021-04-23.csv file        4.25K 2021-04-28 20:16:44
-    ##  8 access-2021-04-22.csv file        4.25K 2021-04-28 20:16:44
-    ##  9 access-2021-04-21.csv file        4.25K 2021-04-28 20:16:44
-    ## 10 access-2021-04-20.csv file        4.25K 2021-04-28 20:16:44
+    ##  1 access-NA.csv         file        3.42K 2021-04-28 23:59:57
+    ##  2 access-2021-04-28.csv file        4.25K 2021-04-28 23:59:58
+    ##  3 access-2021-04-27.csv file        4.25K 2021-04-28 23:57:34
+    ##  4 access-2021-04-26.csv file        4.25K 2021-04-28 23:57:34
+    ##  5 access-2021-04-25.csv file        4.25K 2021-04-28 23:57:34
+    ##  6 access-2021-04-24.csv file        4.25K 2021-04-28 23:57:34
+    ##  7 access-2021-04-23.csv file        4.25K 2021-04-28 23:57:34
+    ##  8 access-2021-04-22.csv file        4.25K 2021-04-28 23:57:34
+    ##  9 access-2021-04-21.csv file        4.25K 2021-04-28 23:57:34
+    ## 10 access-2021-04-20.csv file        4.25K 2021-04-28 23:57:34
     ## # … with 322 more rows
