@@ -1,4 +1,4 @@
-Compiled at 2021-05-08 00:02:34 UTC
+Compiled at 2021-05-08 17:10:14 UTC
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
@@ -41,79 +41,79 @@ directory. Processed datasets are also available here:
 
 ![](workflow/data/99-publish/iowa_change.png)
 
-## Tables as of 2021-05-07
+## Tables as of 2021-05-08
 
-As of 2021-05-07, IPDH is reporting 398 new cases since the previous
+As of 2021-05-08, IPDH is reporting 300 new cases since the previous
 day.
 
 For the entire state, over the past week:
 
 |       date | daily pos. (week avg.) | daily pos. per 100k (week avg.) | week-over-week change |
 | ---------: | ---------------------: | ------------------------------: | --------------------: |
+| 2021-05-08 |                  339.4 |                            10.8 |                \-4.4% |
 | 2021-05-07 |                  352.0 |                            11.2 |                \-2.8% |
 | 2021-05-06 |                  348.3 |                            11.0 |                \-6.0% |
 | 2021-05-05 |                  314.6 |                            10.0 |               \-15.8% |
 | 2021-05-04 |                  366.7 |                            11.6 |                \-6.4% |
 | 2021-05-03 |                  362.9 |                            11.5 |               \-13.7% |
 | 2021-05-02 |                  370.3 |                            11.7 |               \-11.6% |
-| 2021-05-01 |                  355.1 |                            11.3 |               \-27.2% |
 
 For the most-populated counties:
 
 |        county | daily pos. (week avg.) | daily pos. per 100k (week avg.) | week-over-week change |
 | ------------: | ---------------------: | ------------------------------: | --------------------: |
-|          Polk |                   64.0 |                            13.1 |                  2.9% |
-|          Linn |                   21.1 |                             9.3 |                \-8.8% |
-|         Scott |                   38.6 |                            22.3 |                  3.4% |
-|       Johnson |                   12.1 |                             8.0 |               \-34.8% |
-|    Black Hawk |                    9.1 |                             7.0 |                \-6.6% |
-|      Woodbury |                    8.0 |                             7.8 |                \-1.6% |
-|       Dubuque |                    7.9 |                             8.1 |                  0.0% |
-|         Story |                   11.9 |                            12.2 |               \-15.1% |
-|        Dallas |                   10.9 |                            11.6 |                \-3.5% |
-| Pottawattamie |                   14.7 |                            15.8 |                \-1.8% |
+|          Polk |                   61.9 |                            12.6 |                  0.2% |
+|          Linn |                   22.7 |                            10.0 |                 15.3% |
+|         Scott |                   38.9 |                            22.5 |                  4.9% |
+|       Johnson |                   12.0 |                             7.9 |               \-34.5% |
+|    Black Hawk |                    8.1 |                             6.2 |               \-19.0% |
+|      Woodbury |                    6.7 |                             6.5 |               \-18.2% |
+|       Dubuque |                    8.0 |                             8.2 |                \-8.7% |
+|         Story |                   11.4 |                            11.8 |               \-17.9% |
+|        Dallas |                   10.9 |                            11.6 |                  9.2% |
+| Pottawattamie |                   12.7 |                            13.6 |               \-13.5% |
 
 Most positive-cases, per-capita:
 
 |    county | daily pos. (week avg.) | daily pos. per 100k (week avg.) | week-over-week change |
 | --------: | ---------------------: | ------------------------------: | --------------------: |
-|  Ringgold |                    2.1 |                            43.8 |                100.1% |
-|   Madison |                    5.3 |                            32.4 |                120.0% |
-|  Franklin |                    3.1 |                            31.2 |                 16.0% |
-|   Calhoun |                    2.9 |                            29.6 |                 35.0% |
-|     Union |                    3.3 |                            26.8 |                \-3.2% |
-|     Emmet |                    2.3 |                            24.8 |                \-8.0% |
-|     Scott |                   38.6 |                            22.3 |                  3.4% |
-|   Audubon |                    1.1 |                            20.8 |                 50.0% |
-|     Davis |                    1.9 |                            20.6 |                 53.9% |
-| Muscatine |                    8.4 |                            19.8 |                 26.9% |
+|   Madison |                    5.7 |                            35.0 |                135.0% |
+|   Calhoun |                    3.3 |                            34.0 |                 36.4% |
+|  Ringgold |                    1.6 |                            32.1 |                 20.0% |
+|  Franklin |                    3.1 |                            31.2 |                 11.6% |
+|     Davis |                    2.3 |                            25.4 |                 77.0% |
+|     Emmet |                    2.1 |                            23.3 |                  4.8% |
+|     Scott |                   38.9 |                            22.5 |                  4.9% |
+| Muscatine |                    9.1 |                            21.4 |                 51.1% |
+|    Jasper |                    7.6 |                            20.4 |                100.0% |
+|    Wright |                    2.4 |                            19.3 |                 26.3% |
 
 Most growth in positive cases, week-over-week:
 
-|    county | daily pos. (week avg.) | daily pos. per 100k (week avg.) | week-over-week change |
-| --------: | ---------------------: | ------------------------------: | --------------------: |
-|  Crawford |                    3.1 |                            18.7 |                163.7% |
-|   Madison |                    5.3 |                            32.4 |                120.0% |
-|     Boone |                    3.1 |                            12.0 |                107.1% |
-|  Ringgold |                    2.1 |                            43.8 |                100.1% |
-| Chickasaw |                    1.3 |                            10.8 |                100.0% |
-|   Wapello |                    3.0 |                             8.6 |                 75.0% |
-|     Sioux |                    4.0 |                            11.5 |                 75.0% |
-|    Butler |                    1.7 |                            11.9 |                 72.8% |
-|  Plymouth |                    1.4 |                             5.7 |                 70.0% |
-|    Shelby |                    1.4 |                            12.5 |                 70.0% |
+|     county | daily pos. (week avg.) | daily pos. per 100k (week avg.) | week-over-week change |
+| ---------: | ---------------------: | ------------------------------: | --------------------: |
+|    Madison |                    5.7 |                            35.0 |                135.0% |
+|     Jasper |                    7.6 |                            20.4 |                100.0% |
+|      Sioux |                    4.4 |                            12.7 |                 90.0% |
+|      Davis |                    2.3 |                            25.4 |                 77.0% |
+|    Audubon |                    1.0 |                            18.2 |                 75.0% |
+|    Wapello |                    2.9 |                             8.2 |                 68.7% |
+| Washington |                    3.0 |                            13.7 |                 64.7% |
+|   Crawford |                    3.0 |                            17.8 |                 64.7% |
+|        Lee |                    4.1 |                            12.3 |                 63.6% |
+|     Butler |                    1.7 |                            11.9 |                 58.3% |
 
 Biggest decline in positive cases, week-over-week:
 
 |      county | daily pos. (week avg.) | daily pos. per 100k (week avg.) | week-over-week change |
 | ----------: | ---------------------: | ------------------------------: | --------------------: |
-| Buena Vista |                    0.3 |                             1.5 |               \-52.6% |
-|       Adair |                    0.3 |                             4.0 |               \-50.0% |
-|      Howard |                    0.3 |                             3.1 |               \-47.1% |
-|        Clay |                    0.7 |                             4.5 |               \-45.5% |
-|    Delaware |                    1.3 |                             7.6 |               \-44.8% |
-|     Hancock |                    1.0 |                             9.4 |               \-44.0% |
-|       Worth |                    0.9 |                            11.6 |               \-43.5% |
-|   Dickinson |                    1.3 |                             7.5 |               \-42.8% |
-|         Ida |                  \-0.1 |                           \-2.1 |               \-40.0% |
-|  Pocahontas |                    0.3 |                             4.3 |               \-40.0% |
+|  Pocahontas |                    0.0 |                             0.0 |               \-53.3% |
+|   Dickinson |                    1.0 |                             5.8 |               \-51.7% |
+|      Hardin |                    0.9 |                             5.1 |               \-50.0% |
+|       Union |                    2.0 |                            16.3 |               \-47.5% |
+| Buena Vista |                    0.4 |                             2.2 |               \-41.2% |
+|       Adair |                    0.4 |                             6.0 |               \-41.2% |
+| Cerro Gordo |                    5.0 |                            11.8 |               \-40.0% |
+|      Howard |                    0.3 |                             3.1 |               \-40.0% |
+|    Delaware |                    1.4 |                             8.4 |               \-39.3% |
+|       Adams |                    0.1 |                             4.0 |               \-38.4% |
