@@ -1,6 +1,6 @@
 Merge data
 ================
-Compiled at 2021-05-13 00:03:48 UTC
+Compiled at 2021-05-13 17:15:14 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "395c01d6-11f2-4832-9c79-3089737223b8")
@@ -48,7 +48,7 @@ iowa_county_data <-
   arrange(date)
 ```
 
-    ## Rows: 34,507
+    ## Rows: 34,607
     ## Columns: 7
     ## Delimiter: ","
     ## chr  [1]: county
@@ -65,12 +65,12 @@ tail(iowa_county_data)
     ## # A tibble: 6 x 7
     ##   date        fips county    tests cases recovered deaths
     ##   <date>     <dbl> <chr>     <dbl> <dbl>     <dbl>  <dbl>
-    ## 1 2021-05-12 19053 Decatur    3657   608       586      9
-    ## 2 2021-05-12 19177 Van Buren  2847   557       540     18
-    ## 3 2021-05-12 19159 Ringgold   2470   555       529     24
-    ## 4 2021-05-12 19185 Wayne      2595   539       494     23
-    ## 5 2021-05-12 19009 Audubon    2772   509       480     10
-    ## 6 2021-05-12 19003 Adams      1647   338       328      4
+    ## 1 2021-05-13 19053 Decatur    3671   608       587      9
+    ## 2 2021-05-13 19177 Van Buren  2853   557       540     18
+    ## 3 2021-05-13 19159 Ringgold   2475   556       530     24
+    ## 4 2021-05-13 19185 Wayne      2597   539       496     23
+    ## 5 2021-05-13 19009 Audubon    2777   511       483     10
+    ## 6 2021-05-13 19003 Adams      1652   338       328      4
 
 Let’s write it out:
 
@@ -89,4 +89,4 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 1 x 4
     ##   path                 type         size modification_time  
     ##   <fs::path>           <fct> <fs::bytes> <dttm>             
-    ## 1 iowa_county_data.csv file        1.35M 2021-05-13 00:04:38
+    ## 1 iowa_county_data.csv file        1.35M 2021-05-13 17:16:11
