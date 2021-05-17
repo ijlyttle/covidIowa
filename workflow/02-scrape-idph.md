@@ -1,6 +1,6 @@
 Scrape IDPH data
 ================
-Compiled at 2021-05-17 00:01:01 UTC
+Compiled at 2021-05-17 18:26:58 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "357772d2-af9d-4d6e-868f-3dc08773181c")
@@ -169,6 +169,7 @@ files_needed
     ## /Users/runner/work/covidIowa/covidIowa/workflow/data/00-import/idph-html/access-2021-03-06.html
     ## /Users/runner/work/covidIowa/covidIowa/workflow/data/00-import/idph-html/access-2021-03-29.html
     ## /Users/runner/work/covidIowa/covidIowa/workflow/data/00-import/idph-html/access-2021-05-16.html
+    ## /Users/runner/work/covidIowa/covidIowa/workflow/data/00-import/idph-html/access-2021-05-17.html
 
 Finally, we need a function, given a filepath to an html file, and a
 target directory, scrape the html file and write a CSV file in the
@@ -234,17 +235,17 @@ projthis::proj_dir_info(path_target()) %>%
   arrange(desc(path)) # show most-recent first
 ```
 
-    ## # A tibble: 350 x 4
+    ## # A tibble: 351 x 4
     ##    path                  type         size modification_time  
     ##    <fs::path>            <fct> <fs::bytes> <dttm>             
-    ##  1 access-NA.csv         file        3.42K 2021-05-17 00:01:03
-    ##  2 access-2021-05-16.csv file        4.25K 2021-05-17 00:01:04
-    ##  3 access-2021-05-15.csv file        4.25K 2021-05-16 23:58:12
-    ##  4 access-2021-05-14.csv file        4.25K 2021-05-16 23:58:12
-    ##  5 access-2021-05-13.csv file        4.25K 2021-05-16 23:58:12
-    ##  6 access-2021-05-12.csv file        4.25K 2021-05-16 23:58:12
-    ##  7 access-2021-05-11.csv file        4.25K 2021-05-16 23:58:12
-    ##  8 access-2021-05-10.csv file        4.25K 2021-05-16 23:58:12
-    ##  9 access-2021-05-09.csv file        4.25K 2021-05-16 23:58:12
-    ## 10 access-2021-05-08.csv file        4.25K 2021-05-16 23:58:12
-    ## # … with 340 more rows
+    ##  1 access-NA.csv         file        3.42K 2021-05-17 18:27:01
+    ##  2 access-2021-05-17.csv file        4.25K 2021-05-17 18:27:02
+    ##  3 access-2021-05-16.csv file        4.25K 2021-05-17 18:27:01
+    ##  4 access-2021-05-15.csv file        4.25K 2021-05-17 18:24:03
+    ##  5 access-2021-05-14.csv file        4.25K 2021-05-17 18:24:03
+    ##  6 access-2021-05-13.csv file        4.25K 2021-05-17 18:24:03
+    ##  7 access-2021-05-12.csv file        4.25K 2021-05-17 18:24:03
+    ##  8 access-2021-05-11.csv file        4.25K 2021-05-17 18:24:03
+    ##  9 access-2021-05-10.csv file        4.25K 2021-05-17 18:24:03
+    ## 10 access-2021-05-09.csv file        4.25K 2021-05-17 18:24:02
+    ## # … with 341 more rows
