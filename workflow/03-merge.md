@@ -1,6 +1,6 @@
 Merge data
 ================
-Compiled at 2021-05-31 21:10:31 UTC
+Compiled at 2021-06-01 00:51:22 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "395c01d6-11f2-4832-9c79-3089737223b8")
@@ -89,4 +89,4 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 1 x 4
     ##   path                 type         size modification_time  
     ##   <fs::path>           <fct> <fs::bytes> <dttm>             
-    ## 1 iowa_county_data.csv file        1.43M 2021-05-31 21:11:16
+    ## 1 iowa_county_data.csv file        1.43M 2021-06-01 00:52:06
