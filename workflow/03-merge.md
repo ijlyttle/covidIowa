@@ -1,6 +1,6 @@
 Merge data
 ================
-Compiled at 2021-06-16 17:11:47 UTC
+Compiled at 2021-06-16 20:14:25 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "395c01d6-11f2-4832-9c79-3089737223b8")
@@ -48,15 +48,17 @@ iowa_county_data <-
   arrange(date)
 ```
 
-    ## Rows: 37,907
-    ## Columns: 7
+    ## Rows: 37907 Columns: 7
+
+    ## ── Column specification ────────────────────────────────────────────────────────
     ## Delimiter: ","
-    ## chr  [1]: county
-    ## dbl  [5]: fips, tests, cases, recovered, deaths
-    ## date [1]: date
+    ## chr  (1): county
+    ## dbl  (5): fips, tests, cases, recovered, deaths
+    ## date (1): date
+
     ## 
-    ## Use `spec()` to retrieve the guessed column specification
-    ## Pass a specification to the `col_types` argument to quiet this message
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 ``` r
 tail(iowa_county_data)
@@ -89,4 +91,4 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 1 x 4
     ##   path                 type         size modification_time  
     ##   <fs::path>           <fct> <fs::bytes> <dttm>             
-    ## 1 iowa_county_data.csv file        1.49M 2021-06-16 17:12:34
+    ## 1 iowa_county_data.csv file        1.49M 2021-06-16 20:15:21

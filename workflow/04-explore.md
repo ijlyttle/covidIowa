@@ -1,6 +1,6 @@
 04-explore
 ================
-Compiled at 2021-06-16 17:12:35 UTC
+Compiled at 2021-06-16 20:15:22 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "490e689e-0ba3-47f9-8e87-8e1d74cdd841")
@@ -67,14 +67,16 @@ iowa_county_meta <-
   vroom(path_source("01-county-metadata", "iowa_county_meta.csv"))
 ```
 
-    ## Rows: 99
-    ## Columns: 7
+    ## Rows: 99 Columns: 7
+
+    ## ── Column specification ────────────────────────────────────────────────────────
     ## Delimiter: ","
-    ## chr [3]: county, abbreviation, population_group
-    ## dbl [4]: fips, lon, lat, population
+    ## chr (3): county, abbreviation, population_group
+    ## dbl (4): fips, lon, lat, population
+
     ## 
-    ## Use `spec()` to retrieve the guessed column specification
-    ## Pass a specification to the `col_types` argument to quiet this message
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 ``` r
 iowa_county_data <- vroom(
@@ -82,15 +84,17 @@ iowa_county_data <- vroom(
 ) 
 ```
 
-    ## Rows: 37,907
-    ## Columns: 7
+    ## Rows: 37907 Columns: 7
+
+    ## ── Column specification ────────────────────────────────────────────────────────
     ## Delimiter: ","
-    ## chr  [1]: county
-    ## dbl  [5]: fips, tests, cases, recovered, deaths
-    ## date [1]: date
+    ## chr  (1): county
+    ## dbl  (5): fips, tests, cases, recovered, deaths
+    ## date (1): date
+
     ## 
-    ## Use `spec()` to retrieve the guessed column specification
-    ## Pass a specification to the `col_types` argument to quiet this message
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 ### Wrangle
 
@@ -282,7 +286,7 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 4 x 4
     ##   path                       type         size modification_time  
     ##   <fs::path>                 <fct> <fs::bytes> <dttm>             
-    ## 1 iowa_cases.png             file      201.47K 2021-06-16 17:12:41
-    ## 2 iowa_cases_week.csv        file       20.53K 2021-06-16 17:12:41
-    ## 3 iowa_change.png            file      189.85K 2021-06-16 17:12:41
-    ## 4 iowa_county_cases_week.csv file        2.47M 2021-06-16 17:12:42
+    ## 1 iowa_cases.png             file      201.47K 2021-06-16 20:15:29
+    ## 2 iowa_cases_week.csv        file       20.53K 2021-06-16 20:15:29
+    ## 3 iowa_change.png            file      189.85K 2021-06-16 20:15:29
+    ## 4 iowa_county_cases_week.csv file        2.47M 2021-06-16 20:15:30
