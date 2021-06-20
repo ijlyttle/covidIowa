@@ -1,6 +1,6 @@
 04-explore
 ================
-Compiled at 2021-06-20 17:10:10 UTC
+Compiled at 2021-06-20 17:15:12 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "490e689e-0ba3-47f9-8e87-8e1d74cdd841")
@@ -30,7 +30,7 @@ library("USAboundariesData") # also install_github("ropensci/USAboundariesData")
 library("sf")
 ```
 
-    ## Linking to GEOS 3.8.1, GDAL 3.1.4, PROJ 6.3.1
+    ## Linking to GEOS 3.8.1, GDAL 3.2.1, PROJ 7.2.1
 
 ``` r
 library("glue")
@@ -67,14 +67,16 @@ iowa_county_meta <-
   vroom(path_source("01-county-metadata", "iowa_county_meta.csv"))
 ```
 
-    ## Rows: 99
-    ## Columns: 7
+    ## Rows: 99 Columns: 7
+
+    ## ── Column specification ────────────────────────────────────────────────────────
     ## Delimiter: ","
-    ## chr [3]: county, abbreviation, population_group
-    ## dbl [4]: fips, lon, lat, population
+    ## chr (3): county, abbreviation, population_group
+    ## dbl (4): fips, lon, lat, population
+
     ## 
-    ## Use `spec()` to retrieve the guessed column specification
-    ## Pass a specification to the `col_types` argument to quiet this message
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 ``` r
 iowa_county_data <- vroom(
@@ -82,15 +84,17 @@ iowa_county_data <- vroom(
 ) 
 ```
 
-    ## Rows: 38,207
-    ## Columns: 7
+    ## Rows: 38307 Columns: 7
+
+    ## ── Column specification ────────────────────────────────────────────────────────
     ## Delimiter: ","
-    ## chr  [1]: county
-    ## dbl  [5]: fips, tests, cases, recovered, deaths
-    ## date [1]: date
+    ## chr  (1): county
+    ## dbl  (5): fips, tests, cases, recovered, deaths
+    ## date (1): date
+
     ## 
-    ## Use `spec()` to retrieve the guessed column specification
-    ## Pass a specification to the `col_types` argument to quiet this message
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 ### Wrangle
 
@@ -135,7 +139,7 @@ iowa_county_cases_week <-
   print()  
 ```
 
-    ## # A tibble: 37,825 x 10
+    ## # A tibble: 37,924 x 10
     ## # Groups:   county [99]
     ##    date        fips county        population population_group cases_total
     ##    <date>     <dbl> <chr>              <dbl> <chr>                  <dbl>
@@ -149,7 +153,7 @@ iowa_county_cases_week <-
     ##  8 2020-05-25 19169 Story              97117 mid-large                 95
     ##  9 2020-05-25 19049 Dallas             93453 mid-large                857
     ## 10 2020-05-25 19155 Pottawattamie      93206 mid-large                212
-    ## # … with 37,815 more rows, and 4 more variables: cases_total_per100k <dbl>,
+    ## # … with 37,914 more rows, and 4 more variables: cases_total_per100k <dbl>,
     ## #   cases_avg_week <dbl>, cases_avg_week_per100k <dbl>, cases_week_growth <dbl>
 
 ``` r
@@ -283,7 +287,7 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 4 x 4
     ##   path                       type         size modification_time  
     ##   <fs::path>                 <fct> <fs::bytes> <dttm>             
-    ## 1 iowa_cases.png             file      188.16K 2021-06-20 17:10:13
-    ## 2 iowa_cases_week.csv        file       20.69K 2021-06-20 17:10:14
-    ## 3 iowa_change.png            file      173.19K 2021-06-20 17:10:14
-    ## 4 iowa_county_cases_week.csv file        2.49M 2021-06-20 17:10:14
+    ## 1 iowa_cases.png             file       185.8K 2021-06-20 17:15:18
+    ## 2 iowa_cases_week.csv        file        20.8K 2021-06-20 17:15:18
+    ## 3 iowa_change.png            file       180.7K 2021-06-20 17:15:18
+    ## 4 iowa_county_cases_week.csv file         2.5M 2021-06-20 17:15:19
