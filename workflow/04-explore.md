@@ -1,6 +1,6 @@
 04-explore
 ================
-Compiled at 2021-06-20 16:58:13 UTC
+Compiled at 2021-06-20 17:10:10 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "490e689e-0ba3-47f9-8e87-8e1d74cdd841")
@@ -30,7 +30,7 @@ library("USAboundariesData") # also install_github("ropensci/USAboundariesData")
 library("sf")
 ```
 
-    ## Linking to GEOS 3.8.1, GDAL 3.2.1, PROJ 7.2.1
+    ## Linking to GEOS 3.8.1, GDAL 3.1.4, PROJ 6.3.1
 
 ``` r
 library("glue")
@@ -67,16 +67,14 @@ iowa_county_meta <-
   vroom(path_source("01-county-metadata", "iowa_county_meta.csv"))
 ```
 
-    ## Rows: 99 Columns: 7
-
-    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Rows: 99
+    ## Columns: 7
     ## Delimiter: ","
-    ## chr (3): county, abbreviation, population_group
-    ## dbl (4): fips, lon, lat, population
-
+    ## chr [3]: county, abbreviation, population_group
+    ## dbl [4]: fips, lon, lat, population
     ## 
-    ## ℹ Use `spec()` to retrieve the full column specification for this data.
-    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+    ## Use `spec()` to retrieve the guessed column specification
+    ## Pass a specification to the `col_types` argument to quiet this message
 
 ``` r
 iowa_county_data <- vroom(
@@ -84,17 +82,15 @@ iowa_county_data <- vroom(
 ) 
 ```
 
-    ## Rows: 38207 Columns: 7
-
-    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Rows: 38,207
+    ## Columns: 7
     ## Delimiter: ","
-    ## chr  (1): county
-    ## dbl  (5): fips, tests, cases, recovered, deaths
-    ## date (1): date
-
+    ## chr  [1]: county
+    ## dbl  [5]: fips, tests, cases, recovered, deaths
+    ## date [1]: date
     ## 
-    ## ℹ Use `spec()` to retrieve the full column specification for this data.
-    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+    ## Use `spec()` to retrieve the guessed column specification
+    ## Pass a specification to the `col_types` argument to quiet this message
 
 ### Wrangle
 
@@ -206,8 +202,9 @@ iowa_ggplot <- function(.data, var) {
   ggplot(.data) + 
     geom_sf(aes(fill = {{ var }}), color = "white") + 
     theme_void() + 
-    theme(
-      legend.text.align = 1 # right-justify
+    theme(   
+      legend.text.align = 1, # right-justify
+      plot.background = element_rect(fill = "#ffffff")
     )
 }  
 ```
@@ -250,7 +247,7 @@ gg_iowa_change <-
     title = glue("Week-over-week change in COVID-19 positive cases, as of {date}"),
     subtitle = "Data source: Iowa Department of Public Health",
     fill = "change"
-  )  
+  ) 
 
 gg_iowa_change
 ```
@@ -286,7 +283,7 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 4 x 4
     ##   path                       type         size modification_time  
     ##   <fs::path>                 <fct> <fs::bytes> <dttm>             
-    ## 1 iowa_cases.png             file       196.4K 2021-06-20 16:58:19
-    ## 2 iowa_cases_week.csv        file       20.69K 2021-06-20 16:58:19
-    ## 3 iowa_change.png            file      181.71K 2021-06-20 16:58:19
-    ## 4 iowa_county_cases_week.csv file        2.49M 2021-06-20 16:58:20
+    ## 1 iowa_cases.png             file      188.16K 2021-06-20 17:10:13
+    ## 2 iowa_cases_week.csv        file       20.69K 2021-06-20 17:10:14
+    ## 3 iowa_change.png            file      173.19K 2021-06-20 17:10:14
+    ## 4 iowa_county_cases_week.csv file        2.49M 2021-06-20 17:10:14

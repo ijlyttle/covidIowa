@@ -144,8 +144,9 @@ iowa_ggplot <- function(.data, var) {
   ggplot(.data) + 
     geom_sf(aes(fill = {{ var }}), color = "white") + 
     theme_void() + 
-    theme(
-      legend.text.align = 1 # right-justify
+    theme(   
+      legend.text.align = 1, # right-justify
+      plot.background = element_rect(fill = "#ffffff")
     )
 }  
 ```
@@ -186,7 +187,7 @@ gg_iowa_change <-
     title = glue("Week-over-week change in COVID-19 positive cases, as of {date}"),
     subtitle = "Data source: Iowa Department of Public Health",
     fill = "change"
-  )  
+  ) 
 
 gg_iowa_change
 ```

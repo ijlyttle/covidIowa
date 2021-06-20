@@ -24,7 +24,7 @@ on:
     paths:
       - "**.Rmd"
   schedule:
-    - cron:  '15 16 * * *' # run at 16h15 UTC (11h15 Iowa, daylight-saving time)
+    - cron:  '00 17 * * *' # run at 17h00 UTC (12h00 Iowa, daylight-saving time)
     - cron:  '00 20 * * *' # later in the day, just to be safe
     - cron:  '45 23 * * *' # even later in the day, just to be safer
 
