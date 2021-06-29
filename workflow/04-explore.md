@@ -1,6 +1,6 @@
 04-explore
 ================
-Compiled at 2021-06-29 17:25:05 UTC
+Compiled at 2021-06-29 20:18:03 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "490e689e-0ba3-47f9-8e87-8e1d74cdd841")
@@ -287,7 +287,7 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 4 x 4
     ##   path                       type         size modification_time  
     ##   <fs::path>                 <fct> <fs::bytes> <dttm>             
-    ## 1 iowa_cases.png             file      187.11K 2021-06-29 17:25:11
-    ## 2 iowa_cases_week.csv        file       21.22K 2021-06-29 17:25:11
-    ## 3 iowa_change.png            file      175.26K 2021-06-29 17:25:11
-    ## 4 iowa_county_cases_week.csv file        2.56M 2021-06-29 17:25:12
+    ## 1 iowa_cases.png             file      187.11K 2021-06-29 20:18:08
+    ## 2 iowa_cases_week.csv        file       21.22K 2021-06-29 20:18:09
+    ## 3 iowa_change.png            file      175.26K 2021-06-29 20:18:09
+    ## 4 iowa_county_cases_week.csv file        2.56M 2021-06-29 20:18:09
