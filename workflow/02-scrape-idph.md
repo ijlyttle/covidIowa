@@ -1,6 +1,6 @@
 Scrape IDPH data
 ================
-Compiled at 2021-07-21 23:53:05 UTC
+Compiled at 2021-07-22 17:26:04 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "357772d2-af9d-4d6e-868f-3dc08773181c")
@@ -79,17 +79,16 @@ iowa_county_meta <-
   )
 ```
 
-    ## 
+    ## Rows: 99 Columns: 7
+
     ## ── Column specification ────────────────────────────────────────────────────────
-    ## cols(
-    ##   fips = col_double(),
-    ##   county = col_character(),
-    ##   abbreviation = col_character(),
-    ##   lon = col_double(),
-    ##   lat = col_double(),
-    ##   population = col_double(),
-    ##   population_group = col_character()
-    ## )
+    ## Delimiter: ","
+    ## chr (3): county, abbreviation, population_group
+    ## dbl (4): fips, lon, lat, population
+
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 
 ``` r
 extract_data <- function(html, date) {
@@ -170,6 +169,7 @@ files_needed
     ## /Users/runner/work/covidIowa/covidIowa/workflow/data/00-import/idph-html/access-2021-03-29.html
     ## /Users/runner/work/covidIowa/covidIowa/workflow/data/00-import/idph-html/access-2021-06-03.html
     ## /Users/runner/work/covidIowa/covidIowa/workflow/data/00-import/idph-html/access-2021-07-21.html
+    ## /Users/runner/work/covidIowa/covidIowa/workflow/data/00-import/idph-html/access-2021-07-22.html
 
 Finally, we need a function, given a filepath to an html file, and a
 target directory, scrape the html file and write a CSV file in the
@@ -238,14 +238,14 @@ projthis::proj_dir_info(path_target()) %>%
     ## # A tibble: 415 x 4
     ##    path                  type         size modification_time  
     ##    <fs::path>            <fct> <fs::bytes> <dttm>             
-    ##  1 access-NA.csv         file        3.42K 2021-07-21 23:53:07
-    ##  2 access-2021-07-21.csv file        4.25K 2021-07-21 23:53:08
-    ##  3 access-2021-07-20.csv file        4.25K 2021-07-21 23:50:23
-    ##  4 access-2021-07-19.csv file        4.25K 2021-07-21 23:50:23
-    ##  5 access-2021-07-18.csv file        4.25K 2021-07-21 23:50:23
-    ##  6 access-2021-07-17.csv file        4.25K 2021-07-21 23:50:23
-    ##  7 access-2021-07-16.csv file        4.25K 2021-07-21 23:50:23
-    ##  8 access-2021-07-15.csv file        4.25K 2021-07-21 23:50:23
-    ##  9 access-2021-07-14.csv file        4.25K 2021-07-21 23:50:23
-    ## 10 access-2021-07-13.csv file        4.25K 2021-07-21 23:50:23
+    ##  1 access-NA.csv         file        3.42K 2021-07-22 17:26:07
+    ##  2 access-2021-07-21.csv file        4.25K 2021-07-22 17:26:08
+    ##  3 access-2021-07-20.csv file        4.25K 2021-07-22 17:21:58
+    ##  4 access-2021-07-19.csv file        4.25K 2021-07-22 17:21:58
+    ##  5 access-2021-07-18.csv file        4.25K 2021-07-22 17:21:58
+    ##  6 access-2021-07-17.csv file        4.25K 2021-07-22 17:21:58
+    ##  7 access-2021-07-16.csv file        4.25K 2021-07-22 17:21:58
+    ##  8 access-2021-07-15.csv file        4.25K 2021-07-22 17:21:58
+    ##  9 access-2021-07-14.csv file        4.25K 2021-07-22 17:21:58
+    ## 10 access-2021-07-13.csv file        4.25K 2021-07-22 17:21:58
     ## # … with 405 more rows

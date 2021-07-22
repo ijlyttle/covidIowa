@@ -1,6 +1,6 @@
 04-explore
 ================
-Compiled at 2021-07-21 23:53:45 UTC
+Compiled at 2021-07-22 17:27:02 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "490e689e-0ba3-47f9-8e87-8e1d74cdd841")
@@ -16,13 +16,15 @@ library("readr")
 ```
 
     ## Registered S3 methods overwritten by 'readr':
-    ##   method           from 
-    ##   format.col_spec  vroom
-    ##   print.col_spec   vroom
-    ##   print.collector  vroom
-    ##   print.date_names vroom
-    ##   print.locale     vroom
-    ##   str.col_spec     vroom
+    ##   method                    from 
+    ##   as.data.frame.spec_tbl_df vroom
+    ##   as_tibble.spec_tbl_df     vroom
+    ##   format.col_spec           vroom
+    ##   print.col_spec            vroom
+    ##   print.collector           vroom
+    ##   print.date_names          vroom
+    ##   print.locale              vroom
+    ##   str.col_spec              vroom
 
 ``` r
 library("USAboundaries") # also install_github("ropensci/USAboundariesData")
@@ -287,7 +289,7 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 4 x 4
     ##   path                       type         size modification_time  
     ##   <fs::path>                 <fct> <fs::bytes> <dttm>             
-    ## 1 iowa_cases.png             file       191.8K 2021-07-21 23:53:51
-    ## 2 iowa_cases_week.csv        file        22.4K 2021-07-21 23:53:52
-    ## 3 iowa_change.png            file       175.1K 2021-07-21 23:53:52
-    ## 4 iowa_county_cases_week.csv file         2.7M 2021-07-21 23:53:52
+    ## 1 iowa_cases.png             file         179K 2021-07-22 17:27:08
+    ## 2 iowa_cases_week.csv        file        22.4K 2021-07-22 17:27:09
+    ## 3 iowa_change.png            file         184K 2021-07-22 17:27:09
+    ## 4 iowa_county_cases_week.csv file         2.7M 2021-07-22 17:27:09
