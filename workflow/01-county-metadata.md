@@ -1,6 +1,6 @@
 County metadata
 ================
-Compiled at 2021-07-24 23:52:57 UTC
+Compiled at 2021-07-25 17:21:37 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "cee9aa30-7c5a-42d3-80bc-621c4467656f")
@@ -67,7 +67,7 @@ iowa_county_population <-
   print()
 ```
 
-    ## # A tibble: 99 x 6
+    ## # A tibble: 99 × 6
     ##     fips county   population cumulative_popul… quantile_popula… population_group
     ##    <dbl> <chr>         <dbl>             <dbl>            <dbl> <fct>           
     ##  1 19153 Polk         490161           3155070            1     large           
@@ -149,7 +149,7 @@ These files have been written to the target directory,
 projthis::proj_dir_info(path_target())
 ```
 
-    ## # A tibble: 1 x 4
+    ## # A tibble: 1 × 4
     ##   path                 type         size modification_time  
     ##   <fs::path>           <fct> <fs::bytes> <dttm>             
-    ## 1 iowa_county_meta.csv file        6.62K 2021-07-24 23:52:59
+    ## 1 iowa_county_meta.csv file        6.62K 2021-07-25 17:21:39

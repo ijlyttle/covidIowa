@@ -1,6 +1,6 @@
 04-explore
 ================
-Compiled at 2021-07-24 23:53:48 UTC
+Compiled at 2021-07-25 17:22:31 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "490e689e-0ba3-47f9-8e87-8e1d74cdd841")
@@ -141,7 +141,7 @@ iowa_county_cases_week <-
   print()  
 ```
 
-    ## # A tibble: 40,993 x 10
+    ## # A tibble: 40,993 × 10
     ## # Groups:   county [99]
     ##    date        fips county        population population_group cases_total
     ##    <date>     <dbl> <chr>              <dbl> <chr>                  <dbl>
@@ -286,10 +286,10 @@ These files have been written to the target directory,
 projthis::proj_dir_info(path_target())
 ```
 
-    ## # A tibble: 4 x 4
+    ## # A tibble: 4 × 4
     ##   path                       type         size modification_time  
     ##   <fs::path>                 <fct> <fs::bytes> <dttm>             
-    ## 1 iowa_cases.png             file       191.8K 2021-07-24 23:53:54
-    ## 2 iowa_cases_week.csv        file        22.4K 2021-07-24 23:53:54
-    ## 3 iowa_change.png            file       175.1K 2021-07-24 23:53:54
-    ## 4 iowa_county_cases_week.csv file         2.7M 2021-07-24 23:53:54
+    ## 1 iowa_cases.png             file       191.8K 2021-07-25 17:22:36
+    ## 2 iowa_cases_week.csv        file        22.4K 2021-07-25 17:22:36
+    ## 3 iowa_change.png            file       175.1K 2021-07-25 17:22:36
+    ## 4 iowa_county_cases_week.csv file         2.7M 2021-07-25 17:22:37
