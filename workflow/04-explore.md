@@ -1,6 +1,6 @@
 04-explore
 ================
-Compiled at 2021-07-27 23:53:38 UTC
+Compiled at 2021-07-28 17:28:07 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "490e689e-0ba3-47f9-8e87-8e1d74cdd841")
@@ -86,7 +86,7 @@ iowa_county_data <- vroom(
 ) 
 ```
 
-    ## Rows: 41408 Columns: 7
+    ## Rows: 41508 Columns: 7
 
     ## ── Column specification ────────────────────────────────────────────────────────
     ## Delimiter: ","
@@ -141,7 +141,7 @@ iowa_county_cases_week <-
   print()  
 ```
 
-    ## # A tibble: 40,993 × 10
+    ## # A tibble: 41,092 × 10
     ## # Groups:   county [99]
     ##    date        fips county        population population_group cases_total
     ##    <date>     <dbl> <chr>              <dbl> <chr>                  <dbl>
@@ -155,7 +155,7 @@ iowa_county_cases_week <-
     ##  8 2020-05-25 19169 Story              97117 mid-large                 95
     ##  9 2020-05-25 19049 Dallas             93453 mid-large                857
     ## 10 2020-05-25 19155 Pottawattamie      93206 mid-large                212
-    ## # … with 40,983 more rows, and 4 more variables: cases_total_per100k <dbl>,
+    ## # … with 41,082 more rows, and 4 more variables: cases_total_per100k <dbl>,
     ## #   cases_avg_week <dbl>, cases_avg_week_per100k <dbl>, cases_week_growth <dbl>
 
 ``` r
@@ -193,6 +193,9 @@ date <- unique(iowa_county_cases_week_current$date)
 ``` r
 iowa_map <- us_counties(resolution = "low", state = "Iowa")
 ```
+
+    ## old-style crs object detected; please recreate object with a recent sf::st_crs()
+    ## old-style crs object detected; please recreate object with a recent sf::st_crs()
 
 ``` r
 iowa_plot_data <- 
@@ -289,7 +292,7 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 4 × 4
     ##   path                       type         size modification_time  
     ##   <fs::path>                 <fct> <fs::bytes> <dttm>             
-    ## 1 iowa_cases.png             file       191.8K 2021-07-27 23:53:43
-    ## 2 iowa_cases_week.csv        file        22.4K 2021-07-27 23:53:44
-    ## 3 iowa_change.png            file       175.1K 2021-07-27 23:53:44
-    ## 4 iowa_county_cases_week.csv file         2.7M 2021-07-27 23:53:44
+    ## 1 iowa_cases.png             file       198.6K 2021-07-28 17:28:13
+    ## 2 iowa_cases_week.csv        file       22.45K 2021-07-28 17:28:13
+    ## 3 iowa_change.png            file      181.57K 2021-07-28 17:28:13
+    ## 4 iowa_county_cases_week.csv file        2.71M 2021-07-28 17:28:14
