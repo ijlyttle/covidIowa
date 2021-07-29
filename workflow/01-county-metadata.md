@@ -1,6 +1,6 @@
 County metadata
 ================
-Compiled at 2021-07-28 23:52:52 UTC
+Compiled at 2021-07-29 17:24:57 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "cee9aa30-7c5a-42d3-80bc-621c4467656f")
@@ -68,18 +68,18 @@ iowa_county_population <-
 ```
 
     ## # A tibble: 99 × 6
-    ##     fips county   population cumulative_popul… quantile_popula… population_group
-    ##    <dbl> <chr>         <dbl>             <dbl>            <dbl> <fct>           
-    ##  1 19153 Polk         490161           3155070            1     large           
-    ##  2 19113 Linn         226706           2664909            0.845 large           
-    ##  3 19163 Scott        172943           2438203            0.773 mid-large       
-    ##  4 19103 Johnson      151140           2265260            0.718 mid-large       
-    ##  5 19013 Black H…     131228           2114120            0.670 mid-large       
-    ##  6 19193 Woodbury     103107           1982892            0.628 mid-large       
-    ##  7 19061 Dubuque       97311           1879785            0.596 mid-large       
-    ##  8 19169 Story         97117           1782474            0.565 mid-large       
-    ##  9 19049 Dallas        93453           1685357            0.534 mid-large       
-    ## 10 19155 Pottawa…      93206           1591904            0.505 mid-large       
+    ##     fips county        population cumulative_popu… quantile_popula… population_group
+    ##    <dbl> <chr>              <dbl>            <dbl>            <dbl> <fct>           
+    ##  1 19153 Polk              490161          3155070            1     large           
+    ##  2 19113 Linn              226706          2664909            0.845 large           
+    ##  3 19163 Scott             172943          2438203            0.773 mid-large       
+    ##  4 19103 Johnson           151140          2265260            0.718 mid-large       
+    ##  5 19013 Black Hawk        131228          2114120            0.670 mid-large       
+    ##  6 19193 Woodbury          103107          1982892            0.628 mid-large       
+    ##  7 19061 Dubuque            97311          1879785            0.596 mid-large       
+    ##  8 19169 Story              97117          1782474            0.565 mid-large       
+    ##  9 19049 Dallas             93453          1685357            0.534 mid-large       
+    ## 10 19155 Pottawattamie      93206          1591904            0.505 mid-large       
     ## # … with 89 more rows
 
 We also want to compute the approximate centers of the counties (trick I
@@ -152,4 +152,4 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 1 × 4
     ##   path                 type         size modification_time  
     ##   <fs::path>           <fct> <fs::bytes> <dttm>             
-    ## 1 iowa_county_meta.csv file        6.62K 2021-07-28 23:52:55
+    ## 1 iowa_county_meta.csv file        6.62K 2021-07-29 17:24:59
