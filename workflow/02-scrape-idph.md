@@ -1,6 +1,6 @@
 Scrape IDPH data
 ================
-Compiled at 2021-08-18 23:53:07 UTC
+Compiled at 2021-08-19 17:25:59 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "357772d2-af9d-4d6e-868f-3dc08773181c")
@@ -194,6 +194,7 @@ files_needed
     ## /Users/runner/work/covidIowa/covidIowa/workflow/data/00-import/idph-html/access-2021-08-16.html
     ## /Users/runner/work/covidIowa/covidIowa/workflow/data/00-import/idph-html/access-2021-08-17.html
     ## /Users/runner/work/covidIowa/covidIowa/workflow/data/00-import/idph-html/access-2021-08-18.html
+    ## /Users/runner/work/covidIowa/covidIowa/workflow/data/00-import/idph-html/access-2021-08-19.html
 
 Finally, we need a function, given a filepath to an html file, and a
 target directory, scrape the html file and write a CSV file in the
@@ -259,17 +260,17 @@ projthis::proj_dir_info(path_target()) %>%
   arrange(desc(path)) # show most-recent first
 ```
 
-    ## # A tibble: 418 × 4
+    ## # A tibble: 419 × 4
     ##    path                  type         size modification_time  
     ##    <fs::path>            <fct> <fs::bytes> <dttm>             
-    ##  1 access-NA.csv         file        3.42K 2021-08-18 23:53:09
-    ##  2 access-2021-08-12.csv file        4.26K 2021-08-18 23:53:14
-    ##  3 access-2021-08-04.csv file        4.25K 2021-08-18 23:53:12
-    ##  4 access-2021-07-28.csv file        4.25K 2021-08-18 23:53:11
-    ##  5 access-2021-07-21.csv file        4.25K 2021-08-18 23:53:10
-    ##  6 access-2021-07-20.csv file        4.25K 2021-08-18 23:50:18
-    ##  7 access-2021-07-19.csv file        4.25K 2021-08-18 23:50:18
-    ##  8 access-2021-07-18.csv file        4.25K 2021-08-18 23:50:18
-    ##  9 access-2021-07-17.csv file        4.25K 2021-08-18 23:50:18
-    ## 10 access-2021-07-16.csv file        4.25K 2021-08-18 23:50:18
-    ## # … with 408 more rows
+    ##  1 access-NA.csv         file        3.42K 2021-08-19 17:26:02
+    ##  2 access-2021-08-19.csv file        4.26K 2021-08-19 17:26:07
+    ##  3 access-2021-08-12.csv file        4.26K 2021-08-19 17:26:07
+    ##  4 access-2021-08-04.csv file        4.25K 2021-08-19 17:26:06
+    ##  5 access-2021-07-28.csv file        4.25K 2021-08-19 17:26:04
+    ##  6 access-2021-07-21.csv file        4.25K 2021-08-19 17:26:03
+    ##  7 access-2021-07-20.csv file        4.25K 2021-08-19 17:20:29
+    ##  8 access-2021-07-19.csv file        4.25K 2021-08-19 17:20:29
+    ##  9 access-2021-07-18.csv file        4.25K 2021-08-19 17:20:29
+    ## 10 access-2021-07-17.csv file        4.25K 2021-08-19 17:20:29
+    ## # … with 409 more rows
