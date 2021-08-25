@@ -1,6 +1,6 @@
 Import data
 ================
-Compiled at 2021-08-24 23:52:13 UTC
+Compiled at 2021-08-25 17:22:58 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "0deed706-3efe-402b-b827-b58e9bb3e976")
@@ -73,7 +73,7 @@ chrome <- Chrome$new(bin = pagedown::find_chrome())
 
     ## Running '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' \
     ##   --no-first-run --headless \
-    ##   '--user-data-dir=/Users/runner/Library/Application Support/r-crrri/chrome-data-dir-arxehgol' \
+    ##   '--user-data-dir=/Users/runner/Library/Application Support/r-crrri/chrome-data-dir-gxpclsfn' \
     ##   '--remote-debugging-port=9222'
 
 ``` r
@@ -142,8 +142,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 2 × 4
     ##   path              type             size modification_time  
     ##   <fs::path>        <fct>     <fs::bytes> <dttm>             
-    ## 1 county-population directory          96 2021-08-24 23:50:14
-    ## 2 idph-html         directory       14.3K 2021-08-24 23:50:15
+    ## 1 county-population directory          96 2021-08-25 17:20:06
+    ## 2 idph-html         directory       14.3K 2021-08-25 17:23:15
 
 ``` r
 projthis::proj_dir_info(path_target("county-population")) 
@@ -152,24 +152,24 @@ projthis::proj_dir_info(path_target("county-population"))
     ## # A tibble: 1 × 4
     ##   path                       type         size modification_time  
     ##   <fs::path>                 <fct> <fs::bytes> <dttm>             
-    ## 1 iowa-county-population.xls file         230K 2021-08-24 23:50:14
+    ## 1 iowa-county-population.xls file         230K 2021-08-25 17:20:06
 
 ``` r
 projthis::proj_dir_info(path_target("idph-html")) %>% 
   arrange(desc(path)) # show most-recent first
 ```
 
-    ## # A tibble: 456 × 4
+    ## # A tibble: 457 × 4
     ##    path                   type         size modification_time  
     ##    <fs::path>             <fct> <fs::bytes> <dttm>             
-    ##  1 access-2021-08-24.html file         536K 2021-08-24 23:52:28
-    ##  2 access-2021-08-23.html file         536K 2021-08-24 23:50:15
-    ##  3 access-2021-08-22.html file         536K 2021-08-24 23:50:15
-    ##  4 access-2021-08-21.html file         536K 2021-08-24 23:50:15
-    ##  5 access-2021-08-20.html file         536K 2021-08-24 23:50:15
-    ##  6 access-2021-08-19.html file         536K 2021-08-24 23:50:15
-    ##  7 access-2021-08-18.html file         536K 2021-08-24 23:50:15
-    ##  8 access-2021-08-17.html file         536K 2021-08-24 23:50:15
-    ##  9 access-2021-08-16.html file         535K 2021-08-24 23:50:15
-    ## 10 access-2021-08-15.html file         536K 2021-08-24 23:50:15
-    ## # … with 446 more rows
+    ##  1 access-2021-08-25.html file         536K 2021-08-25 17:23:15
+    ##  2 access-2021-08-24.html file         536K 2021-08-25 17:20:07
+    ##  3 access-2021-08-23.html file         536K 2021-08-25 17:20:07
+    ##  4 access-2021-08-22.html file         536K 2021-08-25 17:20:07
+    ##  5 access-2021-08-21.html file         536K 2021-08-25 17:20:07
+    ##  6 access-2021-08-20.html file         536K 2021-08-25 17:20:07
+    ##  7 access-2021-08-19.html file         536K 2021-08-25 17:20:07
+    ##  8 access-2021-08-18.html file         536K 2021-08-25 17:20:07
+    ##  9 access-2021-08-17.html file         536K 2021-08-25 17:20:07
+    ## 10 access-2021-08-16.html file         535K 2021-08-25 17:20:07
+    ## # … with 447 more rows
