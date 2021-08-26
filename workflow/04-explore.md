@@ -1,6 +1,6 @@
 04-explore
 ================
-Compiled at 2021-08-25 23:53:57 UTC
+Compiled at 2021-08-26 17:25:35 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "490e689e-0ba3-47f9-8e87-8e1d74cdd841")
@@ -86,7 +86,7 @@ iowa_county_data <- vroom(
 ) 
 ```
 
-    ## Rows: 41808 Columns: 7
+    ## Rows: 41908 Columns: 7
 
     ## ── Column specification ────────────────────────────────────────────────────────
     ## Delimiter: ","
@@ -141,7 +141,7 @@ iowa_county_cases_week <-
   print()  
 ```
 
-    ## # A tibble: 41,389 × 10
+    ## # A tibble: 41,488 × 10
     ## # Groups:   county [99]
     ##    date        fips county        population population_group cases_total
     ##    <date>     <dbl> <chr>              <dbl> <chr>                  <dbl>
@@ -155,7 +155,7 @@ iowa_county_cases_week <-
     ##  8 2020-05-25 19169 Story              97117 mid-large                 95
     ##  9 2020-05-25 19049 Dallas             93453 mid-large                857
     ## 10 2020-05-25 19155 Pottawattamie      93206 mid-large                212
-    ## # … with 41,379 more rows, and 4 more variables: cases_total_per100k <dbl>,
+    ## # … with 41,478 more rows, and 4 more variables: cases_total_per100k <dbl>,
     ## #   cases_avg_week <dbl>, cases_avg_week_per100k <dbl>, cases_week_growth <dbl>
 
 ``` r
@@ -292,7 +292,7 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 4 × 4
     ##   path                       type         size modification_time  
     ##   <fs::path>                 <fct> <fs::bytes> <dttm>             
-    ## 1 iowa_cases.png             file      205.65K 2021-08-25 23:54:03
-    ## 2 iowa_cases_week.csv        file       22.61K 2021-08-25 23:54:03
-    ## 3 iowa_change.png            file      184.06K 2021-08-25 23:54:03
-    ## 4 iowa_county_cases_week.csv file        2.73M 2021-08-25 23:54:03
+    ## 1 iowa_cases.png             file      204.05K 2021-08-26 17:25:41
+    ## 2 iowa_cases_week.csv        file       22.67K 2021-08-26 17:25:41
+    ## 3 iowa_change.png            file      187.96K 2021-08-26 17:25:41
+    ## 4 iowa_county_cases_week.csv file        2.73M 2021-08-26 17:25:42
