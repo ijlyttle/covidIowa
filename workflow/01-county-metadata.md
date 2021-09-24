@@ -1,6 +1,6 @@
 County metadata
 ================
-Compiled at 2021-09-23 23:54:05 UTC
+Compiled at 2021-09-24 17:18:50 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "cee9aa30-7c5a-42d3-80bc-621c4467656f")
@@ -152,4 +152,4 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 1 × 4
     ##   path                 type         size modification_time  
     ##   <fs::path>           <fct> <fs::bytes> <dttm>             
-    ## 1 iowa_county_meta.csv file        6.62K 2021-09-23 23:54:07
+    ## 1 iowa_county_meta.csv file        6.62K 2021-09-24 17:18:52
