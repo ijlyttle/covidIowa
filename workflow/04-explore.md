@@ -1,6 +1,6 @@
 04-explore
 ================
-Compiled at 2021-10-07 20:16:25 UTC
+Compiled at 2021-10-08 17:28:51 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "490e689e-0ba3-47f9-8e87-8e1d74cdd841")
@@ -194,9 +194,6 @@ date <- unique(iowa_county_cases_week_current$date)
 iowa_map <- us_counties(resolution = "low", state = "Iowa")
 ```
 
-    ## old-style crs object detected; please recreate object with a recent sf::st_crs()
-    ## old-style crs object detected; please recreate object with a recent sf::st_crs()
-
 ``` r
 iowa_plot_data <- 
   iowa_map %>%
@@ -292,7 +289,7 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 4 × 4
     ##   path                       type         size modification_time  
     ##   <fs::path>                 <fct> <fs::bytes> <dttm>             
-    ## 1 iowa_cases.png             file      217.24K 2021-10-07 20:16:31
-    ## 2 iowa_cases_week.csv        file       23.01K 2021-10-07 20:16:32
-    ## 3 iowa_change.png            file      188.85K 2021-10-07 20:16:31
-    ## 4 iowa_county_cases_week.csv file        2.77M 2021-10-07 20:16:32
+    ## 1 iowa_cases.png             file      217.21K 2021-10-08 17:28:57
+    ## 2 iowa_cases_week.csv        file       23.01K 2021-10-08 17:28:57
+    ## 3 iowa_change.png            file      188.87K 2021-10-08 17:28:57
+    ## 4 iowa_county_cases_week.csv file        2.77M 2021-10-08 17:28:57
